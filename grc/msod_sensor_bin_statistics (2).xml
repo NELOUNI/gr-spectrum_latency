@@ -1,0 +1,27 @@
+<block>
+  <name>Bin statistics</name>
+  <key>msod_sensor_bin_statistics</key>
+  <category>MSOD_sensor</category>
+  <import>import msod_sensor</import>
+  <make>msod_sensor.bin_statistics($vlen, $meas_period)</make>
+  <param>
+    <name>Vlen</name>
+    <key>vlen</key>
+    <type>raw</type>
+  </param>
+  <param>
+    <name>Meas_period</name>
+    <key>meas_period</key>
+    <type>raw</type>
+  </param>
+  <sink>
+    <name>in</name>
+    <type>float</type>
+    <vlen>$vlen</vlen>
+  </sink>
+  <source>
+    <name>out</name>
+    <type>float</type>
+    <vlen>$vlen</vlen>
+  </source>
+</block>
