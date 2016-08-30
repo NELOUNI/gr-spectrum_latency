@@ -31,7 +31,8 @@ endif()
 GR_PYTHON_INSTALL(
     FILES
     __init__.py
-    sslsocket_sink.py DESTINATION ${GR_PYTHON_DIR}/msod_sensor
+    sslsocket_sink.py
+    jsonfile_sink_py.py DESTINATION ${GR_PYTHON_DIR}/spectrum_latency
 )
 
 ########################################################################
@@ -39,5 +40,7 @@ GR_PYTHON_INSTALL(
 ########################################################################
 include(GrTest)
 
-set(GR_TEST_TARGET_DEPS gnuradio-msod_sensor)
+set(GR_TEST_TARGET_DEPS gnuradio-spectrum_latency)
 set(GR_TEST_PYTHON_DIRS ${CMAKE_BINARY_DIR}/swig)
+GR_ADD_TEST(qa_sslsocket_sink ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_sslsocket_sink.py)
+GR_ADD_TEST(qa_jsonfile_sink_py ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_jsonfile_sink_py.py)

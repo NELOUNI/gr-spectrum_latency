@@ -19,17 +19,19 @@
 # The presence of this file turns this directory into a Python package
 
 '''
-This is the GNU Radio MSOD_SENSOR module. Place your Python package
+This is the GNU Radio SPECTRUM_LATENCY module. Place your Python package
 description here (python/__init__.py).
 '''
 
-# import swig generated symbols into the msod_sensor namespace
+# import swig generated symbols into the spectrum_latency namespace
 try:
 	# this might fail if the module is python-only
-	from msod_sensor_swig import *
+	from spectrum_latency_swig import *
 except ImportError:
 	pass
 
 # import any pure python here
+
 from sslsocket_sink import sslsocket_sink
+from jsonfile_sink_py import jsonfile_sink_py
 #

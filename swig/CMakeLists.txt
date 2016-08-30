@@ -20,10 +20,10 @@
 ########################################################################
 # Check if there is C++ code at all
 ########################################################################
-if(NOT msod_sensor_sources)
+if(NOT spectrum_latency_sources)
 	MESSAGE(STATUS "No C++ sources... skipping swig/")
 	return()
-endif(NOT msod_sensor_sources)
+endif(NOT spectrum_latency_sources)
 
 ########################################################################
 # Include swig generation macros
@@ -43,23 +43,23 @@ foreach(incdir ${GNURADIO_RUNTIME_INCLUDE_DIRS})
     list(APPEND GR_SWIG_INCLUDE_DIRS ${incdir}/gnuradio/swig)
 endforeach(incdir)
 
-set(GR_SWIG_LIBRARIES gnuradio-msod_sensor)
-set(GR_SWIG_DOC_FILE ${CMAKE_CURRENT_BINARY_DIR}/msod_sensor_swig_doc.i)
+set(GR_SWIG_LIBRARIES gnuradio-spectrum_latency)
+set(GR_SWIG_DOC_FILE ${CMAKE_CURRENT_BINARY_DIR}/spectrum_latency_swig_doc.i)
 set(GR_SWIG_DOC_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/../include)
 
-GR_SWIG_MAKE(msod_sensor_swig msod_sensor_swig.i)
+GR_SWIG_MAKE(spectrum_latency_swig spectrum_latency_swig.i)
 
 ########################################################################
 # Install the build swig module
 ########################################################################
-GR_SWIG_INSTALL(TARGETS msod_sensor_swig DESTINATION ${GR_PYTHON_DIR}/msod_sensor)
+GR_SWIG_INSTALL(TARGETS spectrum_latency_swig DESTINATION ${GR_PYTHON_DIR}/spectrum_latency)
 
 ########################################################################
 # Install swig .i files for development
 ########################################################################
 install(
     FILES
-    msod_sensor_swig.i
-    ${CMAKE_CURRENT_BINARY_DIR}/msod_sensor_swig_doc.i
-    DESTINATION ${GR_INCLUDE_DIR}/msod_sensor/swig
+    spectrum_latency_swig.i
+    ${CMAKE_CURRENT_BINARY_DIR}/spectrum_latency_swig_doc.i
+    DESTINATION ${GR_INCLUDE_DIR}/spectrum_latency/swig
 )

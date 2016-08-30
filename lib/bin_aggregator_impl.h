@@ -18,13 +18,13 @@
  * Boston, MA 02110-1301, USA.
  */
 
-#ifndef INCLUDED_msod_sensor_BIN_AGGREGATOR_IMPL_H
-#define INCLUDED_msod_sensor_BIN_AGGREGATOR_IMPL_H
+#ifndef INCLUDED_spectrum_latency_BIN_AGGREGATOR_IMPL_H
+#define INCLUDED_spectrum_latency_BIN_AGGREGATOR_IMPL_H
 
-#include <msod_sensor/bin_aggregator.h>
+#include <spectrum_latency/bin_aggregator.h>
 
 namespace gr {
-  namespace msod_sensor {
+  namespace spectrum_latency {
 
     class bin_aggregator_impl : public bin_aggregator
     {
@@ -51,8 +51,8 @@ namespace gr {
 	       gr_vector_void_star &output_items);
     };
 
-  } // namespace msod_sensor
+  } // namespace spectrum_latency
 } // namespace gr
 
-#endif /* INCLUDED_msod_sensor_BIN_AGGREGATOR_IMPL_H */
+#endif /* INCLUDED_spectrum_latency_BIN_AGGREGATOR_IMPL_H */
 

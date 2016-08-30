@@ -33,6 +33,7 @@ import requests
 
 import struct
 import os
+
 from timezone import getLocalUtcTimeStamp, formatTimeStampLong
 
 class Struct(dict):

@@ -1,5 +1,5 @@
-title: The MSOD_SENSOR OOT Module
-brief: Short description of gr-msod_sensor
+title: The SPECTRUM_LATENCY OOT Module
+brief: Short description of gr-spectrum_latency
 tags: # Tags are arbitrary, but look at CGRAN what other authors are using
   - sdr
 author:
@@ -11,6 +11,6 @@ license:
 #website: <module_website> # If you have a separate project website, put it here
 #icon: <icon_url> # Put a URL to a square image here that will be used as an icon on CGRAN
 ---
-A longer, multi-line description of gr-msod_sensor.
+A longer, multi-line description of gr-spectrum_latency.
 You may use some *basic* Markdown here.
 If left empty, it will try to find a README file instead.

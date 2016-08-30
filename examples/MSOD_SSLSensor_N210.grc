@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<?grc format='1' created='3.7.10'?>
+<?grc format='1' created='3.7.11'?>
 <flow_graph>
   <timestamp>Tue Sep  1 14:27:23 2015</timestamp>
   <block>
@@ -368,7 +368,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>"pwct5.ctl.nist.gov"</value>
+      <value>"129.6.142.103"</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -396,7 +396,7 @@
     </param>
     <param>
       <key>label1</key>
-      <value>Naceur Laptop</value>
+      <value>NEO_VM</value>
     </param>
     <param>
       <key>label2</key>
@@ -428,7 +428,7 @@
     </param>
     <param>
       <key>option1</key>
-      <value>"129.6.230.12"</value>
+      <value>"129.6.142.103"</value>
     </param>
     <param>
       <key>option2</key>
@@ -1268,11 +1268,7 @@
     </param>
   </block>
   <block>
-    <key>msod_sensor_bin_aggregator</key>
-    <param>
-      <key>avoid_LO</key>
-      <value>False</value>
-    </param>
+    <key>spectrum_latency_bin_aggregator</key>
     <param>
       <key>bandwidth</key>
       <value>ActualBW</value>
@@ -1299,7 +1295,7 @@
     </param>
     <param>
       <key>_enabled</key>
-      <value>1</value>
+      <value>True</value>
     </param>
     <param>
       <key>fft_size</key>
@@ -1307,7 +1303,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(224, 443)</value>
+      <value>(216, 436)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1315,7 +1311,7 @@
     </param>
     <param>
       <key>id</key>
-      <value>msod_sensor_bin_aggregator_0</value>
+      <value>spectrum_latency_bin_aggregator_0</value>
     </param>
     <param>
       <key>input_vlen</key>
@@ -1343,7 +1339,7 @@
     </param>
   </block>
   <block>
-    <key>msod_sensor_bin_statistics</key>
+    <key>spectrum_latency_bin_statistics</key>
     <param>
       <key>alias</key>
       <value></value>
@@ -1358,11 +1354,11 @@
     </param>
     <param>
       <key>_enabled</key>
-      <value>1</value>
+      <value>True</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(440, 483)</value>
+      <value>(432, 484)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1370,7 +1366,7 @@
     </param>
     <param>
       <key>id</key>
-      <value>msod_sensor_bin_statistics_0</value>
+      <value>spectrum_latency_bin_statistics_0</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -1390,18 +1386,14 @@
     </param>
   </block>
   <block>
-    <key>msod_sensor_jsonfile_sink</key>
+    <key>spectrum_latency_jsonfile_sink</key>
     <param>
       <key>atten</key>
       <value>0</value>
     </param>
     <param>
-      <key>avoid_LO</key>
-      <value>False</value>
-    </param>
-    <param>
       <key>bandwidth</key>
-      <value>ActualBW</value>
+      <value>bandwidth</value>
     </param>
     <param>
       <key>alias</key>
@@ -1425,11 +1417,11 @@
     </param>
     <param>
       <key>filename</key>
-      <value>"/home/nae/capture/capture_USRP/03_25_2016-001.dat"</value>
+      <value>"/home/nae/SpectrumMonitorSensors/N210"</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(896, 631)</value>
+      <value>(984, 612)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1437,7 +1429,7 @@
     </param>
     <param>
       <key>id</key>
-      <value>msod_sensor_jsonfile_sink_0</value>
+      <value>spectrum_latency_jsonfile_sink_0</value>
     </param>
     <param>
       <key>meas_duration</key>
@@ -1448,16 +1440,12 @@
       <value>num_ch</value>
     </param>
     <param>
-      <key>samp_rate</key>
-      <value>samp_rate</value>
-    </param>
-    <param>
       <key>sensor_id</key>
-      <value>"E6R16W5XS"</value>
+      <value>"F37258"</value>
     </param>
     <param>
       <key>sensor_key</key>
-      <value>"NaN"</value>
+      <value>"12345"</value>
     </param>
     <param>
       <key>sensorLoc</key>
@@ -1469,18 +1457,14 @@
     </param>
   </block>
   <block>
-    <key>msod_sensor_sslsocket_sink</key>
+    <key>spectrum_latency_sslsocket_sink</key>
     <param>
       <key>atten</key>
       <value>0</value>
     </param>
     <param>
-      <key>avoid_LO</key>
-      <value>False</value>
-    </param>
-    <param>
       <key>bandwidth</key>
-      <value>ActualBW</value>
+      <value>bandwidth</value>
     </param>
     <param>
       <key>alias</key>
@@ -1504,11 +1488,11 @@
     </param>
     <param>
       <key>_enabled</key>
-      <value>0</value>
+      <value>True</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(896, 415)</value>
+      <value>(984, 420)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1516,7 +1500,7 @@
     </param>
     <param>
       <key>id</key>
-      <value>msod_sensor_sslsocket_sink_0</value>
+      <value>spectrum_latency_sslsocket_sink_0</value>
     </param>
     <param>
       <key>meas_duration</key>
@@ -1527,24 +1511,20 @@
       <value>num_ch</value>
     </param>
     <param>
-      <key>samp_rate</key>
-      <value>samp_rate</value>
-    </param>
-    <param>
       <key>sensor_id</key>
       <value>"F37258"</value>
     </param>
     <param>
       <key>sensor_key</key>
-      <value>"NaN"</value>
+      <value>"12345"</value>
     </param>
     <param>
       <key>sensorLoc</key>
-      <value>"/raid/nae/pybombs/src/gr-msod_latency/examples/sensor.loc"</value>
+      <value>"/raid/nae/pybombs/src/gr-spectrum_latency/examples/sensor.loc"</value>
     </param>
     <param>
       <key>sensorSys</key>
-      <value>"/raid/nae/pybombs/src/gr-msod_latency/examples/sensor.sys"</value>
+      <value>"/raid/nae/pybombs/src/gr-spectrum_latency/examples/sensor.sys"</value>
     </param>
   </block>
   <block>
@@ -1582,6 +1562,14 @@
       <value>rx_gain</value>
     </param>
     <param>
+      <key>lo_export0</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>lo_source0</key>
+      <value>internal</value>
+    </param>
+    <param>
       <key>ant10</key>
       <value></value>
     </param>
@@ -1608,6 +1596,14 @@
     <param>
       <key>gain10</key>
       <value>0</value>
+    </param>
+    <param>
+      <key>lo_export10</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>lo_source10</key>
+      <value>internal</value>
     </param>
     <param>
       <key>ant11</key>
@@ -1638,6 +1634,14 @@
       <value>0</value>
     </param>
     <param>
+      <key>lo_export11</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>lo_source11</key>
+      <value>internal</value>
+    </param>
+    <param>
       <key>ant12</key>
       <value></value>
     </param>
@@ -1664,6 +1668,14 @@
     <param>
       <key>gain12</key>
       <value>0</value>
+    </param>
+    <param>
+      <key>lo_export12</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>lo_source12</key>
+      <value>internal</value>
     </param>
     <param>
       <key>ant13</key>
@@ -1694,6 +1706,14 @@
       <value>0</value>
     </param>
     <param>
+      <key>lo_export13</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>lo_source13</key>
+      <value>internal</value>
+    </param>
+    <param>
       <key>ant14</key>
       <value></value>
     </param>
@@ -1720,6 +1740,14 @@
     <param>
       <key>gain14</key>
       <value>0</value>
+    </param>
+    <param>
+      <key>lo_export14</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>lo_source14</key>
+      <value>internal</value>
     </param>
     <param>
       <key>ant15</key>
@@ -1750,6 +1778,14 @@
       <value>0</value>
     </param>
     <param>
+      <key>lo_export15</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>lo_source15</key>
+      <value>internal</value>
+    </param>
+    <param>
       <key>ant16</key>
       <value></value>
     </param>
@@ -1776,6 +1812,14 @@
     <param>
       <key>gain16</key>
       <value>0</value>
+    </param>
+    <param>
+      <key>lo_export16</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>lo_source16</key>
+      <value>internal</value>
     </param>
     <param>
       <key>ant17</key>
@@ -1806,6 +1850,14 @@
       <value>0</value>
     </param>
     <param>
+      <key>lo_export17</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>lo_source17</key>
+      <value>internal</value>
+    </param>
+    <param>
       <key>ant18</key>
       <value></value>
     </param>
@@ -1832,6 +1884,14 @@
     <param>
       <key>gain18</key>
       <value>0</value>
+    </param>
+    <param>
+      <key>lo_export18</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>lo_source18</key>
+      <value>internal</value>
     </param>
     <param>
       <key>ant19</key>
@@ -1862,6 +1922,14 @@
       <value>0</value>
     </param>
     <param>
+      <key>lo_export19</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>lo_source19</key>
+      <value>internal</value>
+    </param>
+    <param>
       <key>ant1</key>
       <value></value>
     </param>
@@ -1888,6 +1956,14 @@
     <param>
       <key>gain1</key>
       <value>0</value>
+    </param>
+    <param>
+      <key>lo_export1</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>lo_source1</key>
+      <value>internal</value>
     </param>
     <param>
       <key>ant20</key>
@@ -1918,6 +1994,14 @@
       <value>0</value>
     </param>
     <param>
+      <key>lo_export20</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>lo_source20</key>
+      <value>internal</value>
+    </param>
+    <param>
       <key>ant21</key>
       <value></value>
     </param>
@@ -1944,6 +2028,14 @@
     <param>
       <key>gain21</key>
       <value>0</value>
+    </param>
+    <param>
+      <key>lo_export21</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>lo_source21</key>
+      <value>internal</value>
     </param>
     <param>
       <key>ant22</key>
@@ -1974,6 +2066,14 @@
       <value>0</value>
     </param>
     <param>
+      <key>lo_export22</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>lo_source22</key>
+      <value>internal</value>
+    </param>
+    <param>
       <key>ant23</key>
       <value></value>
     </param>
@@ -2000,6 +2100,14 @@
     <param>
       <key>gain23</key>
       <value>0</value>
+    </param>
+    <param>
+      <key>lo_export23</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>lo_source23</key>
+      <value>internal</value>
     </param>
     <param>
       <key>ant24</key>
@@ -2030,6 +2138,14 @@
       <value>0</value>
     </param>
     <param>
+      <key>lo_export24</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>lo_source24</key>
+      <value>internal</value>
+    </param>
+    <param>
       <key>ant25</key>
       <value></value>
     </param>
@@ -2056,6 +2172,14 @@
     <param>
       <key>gain25</key>
       <value>0</value>
+    </param>
+    <param>
+      <key>lo_export25</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>lo_source25</key>
+      <value>internal</value>
     </param>
     <param>
       <key>ant26</key>
@@ -2086,6 +2210,14 @@
       <value>0</value>
     </param>
     <param>
+      <key>lo_export26</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>lo_source26</key>
+      <value>internal</value>
+    </param>
+    <param>
       <key>ant27</key>
       <value></value>
     </param>
@@ -2112,6 +2244,14 @@
     <param>
       <key>gain27</key>
       <value>0</value>
+    </param>
+    <param>
+      <key>lo_export27</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>lo_source27</key>
+      <value>internal</value>
     </param>
     <param>
       <key>ant28</key>
@@ -2142,6 +2282,14 @@
       <value>0</value>
     </param>
     <param>
+      <key>lo_export28</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>lo_source28</key>
+      <value>internal</value>
+    </param>
+    <param>
       <key>ant29</key>
       <value></value>
     </param>
@@ -2168,6 +2316,14 @@
     <param>
       <key>gain29</key>
       <value>0</value>
+    </param>
+    <param>
+      <key>lo_export29</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>lo_source29</key>
+      <value>internal</value>
     </param>
     <param>
       <key>ant2</key>
@@ -2198,6 +2354,14 @@
       <value>0</value>
     </param>
     <param>
+      <key>lo_export2</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>lo_source2</key>
+      <value>internal</value>
+    </param>
+    <param>
       <key>ant30</key>
       <value></value>
     </param>
@@ -2224,6 +2388,14 @@
     <param>
       <key>gain30</key>
       <value>0</value>
+    </param>
+    <param>
+      <key>lo_export30</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>lo_source30</key>
+      <value>internal</value>
     </param>
     <param>
       <key>ant31</key>
@@ -2254,6 +2426,14 @@
       <value>0</value>
     </param>
     <param>
+      <key>lo_export31</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>lo_source31</key>
+      <value>internal</value>
+    </param>
+    <param>
       <key>ant3</key>
       <value></value>
     </param>
@@ -2280,6 +2460,14 @@
     <param>
       <key>gain3</key>
       <value>0</value>
+    </param>
+    <param>
+      <key>lo_export3</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>lo_source3</key>
+      <value>internal</value>
     </param>
     <param>
       <key>ant4</key>
@@ -2310,6 +2498,14 @@
       <value>0</value>
     </param>
     <param>
+      <key>lo_export4</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>lo_source4</key>
+      <value>internal</value>
+    </param>
+    <param>
       <key>ant5</key>
       <value></value>
     </param>
@@ -2336,6 +2532,14 @@
     <param>
       <key>gain5</key>
       <value>0</value>
+    </param>
+    <param>
+      <key>lo_export5</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>lo_source5</key>
+      <value>internal</value>
     </param>
     <param>
       <key>ant6</key>
@@ -2366,6 +2570,14 @@
       <value>0</value>
     </param>
     <param>
+      <key>lo_export6</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>lo_source6</key>
+      <value>internal</value>
+    </param>
+    <param>
       <key>ant7</key>
       <value></value>
     </param>
@@ -2392,6 +2604,14 @@
     <param>
       <key>gain7</key>
       <value>0</value>
+    </param>
+    <param>
+      <key>lo_export7</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>lo_source7</key>
+      <value>internal</value>
     </param>
     <param>
       <key>ant8</key>
@@ -2422,6 +2642,14 @@
       <value>0</value>
     </param>
     <param>
+      <key>lo_export8</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>lo_source8</key>
+      <value>internal</value>
+    </param>
+    <param>
       <key>ant9</key>
       <value></value>
     </param>
@@ -2448,6 +2676,14 @@
     <param>
       <key>gain9</key>
       <value>0</value>
+    </param>
+    <param>
+      <key>lo_export9</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>lo_source9</key>
+      <value>internal</value>
     </param>
     <param>
       <key>clock_rate</key>
@@ -2610,6 +2846,10 @@
       <value>False</value>
     </param>
     <param>
+      <key>hide_lo_controls</key>
+      <value>True</value>
+    </param>
+    <param>
       <key>stream_args</key>
       <value></value>
     </param>
@@ -2665,7 +2905,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(72, 491)</value>
+      <value>(40, 492)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -2688,13 +2928,13 @@
   </connection>
   <connection>
     <source_block_id>blocks_float_to_char_0</source_block_id>
-    <sink_block_id>msod_sensor_jsonfile_sink_0</sink_block_id>
+    <sink_block_id>spectrum_latency_jsonfile_sink_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
     <source_block_id>blocks_float_to_char_0</source_block_id>
-    <sink_block_id>msod_sensor_sslsocket_sink_0</sink_block_id>
+    <sink_block_id>spectrum_latency_sslsocket_sink_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
@@ -2717,13 +2957,13 @@
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>msod_sensor_bin_aggregator_0</source_block_id>
-    <sink_block_id>msod_sensor_bin_statistics_0</sink_block_id>
+    <source_block_id>spectrum_latency_bin_aggregator_0</source_block_id>
+    <sink_block_id>spectrum_latency_bin_statistics_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>msod_sensor_bin_statistics_0</source_block_id>
+    <source_block_id>spectrum_latency_bin_statistics_0</source_block_id>
     <sink_block_id>blocks_nlog10_ff_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
@@ -2736,7 +2976,7 @@
   </connection>
   <connection>
     <source_block_id>virtual_source_0</source_block_id>
-    <sink_block_id>msod_sensor_bin_aggregator_0</sink_block_id>
+    <sink_block_id>spectrum_latency_bin_aggregator_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>

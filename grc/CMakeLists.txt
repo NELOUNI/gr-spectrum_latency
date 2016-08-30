@@ -18,8 +18,8 @@
 # Boston, MA 02110-1301, USA.
 
 install(FILES
-    msod_sensor_sslsocket_sink.xml
-    msod_sensor_bin_statistics.xml
-    msod_sensor_jsonfile_sink.xml
-    msod_sensor_bin_aggregator.xml DESTINATION share/gnuradio/grc/blocks
+	spectrum_latency_bin_aggregator.xml
+	spectrum_latency_bin_statistics.xml
+	spectrum_latency_jsonfile_sink_py.xml
+	spectrum_latency_sslsocket_sink.xml DESTINATION share/gnuradio/grc/blocks
 )

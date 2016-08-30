@@ -1,4 +1,4 @@
-# Copyright 2011,2012,2014 Free Software Foundation, Inc.
+# Copyright 2011,2012,2014,2016 Free Software Foundation, Inc.
 #
 # This file is part of GNU Radio
 #
@@ -21,8 +21,14 @@
 # Project setup
 ########################################################################
 cmake_minimum_required(VERSION 2.6)
-project(gr-msod_sensor CXX C)
+project(gr-spectrum_latency CXX C)
 enable_testing()
+
+#install to PyBOMBS target prefix if defined
+if(DEFINED ENV{PYBOMBS_PREFIX})
+    set(CMAKE_INSTALL_PREFIX $ENV{PYBOMBS_PREFIX})
+    message(STATUS "PyBOMBS installed GNU Radio. Setting CMAKE_INSTALL_PREFIX to $ENV{PYBOMBS_PREFIX}")
+endif()
 
 #select the release build type by default to get optimization flags
 if(NOT CMAKE_BUILD_TYPE)
@@ -34,12 +40,18 @@ set(CMAKE_BUILD_TYPE ${CMAKE_BUILD_TYPE} CACHE STRING "")
 #make sure our local CMake Modules path comes first
 list(INSERT CMAKE_MODULE_PATH 0 ${CMAKE_SOURCE_DIR}/cmake/Modules)
 
+# Set the version information here
+set(VERSION_INFO_MAJOR_VERSION 1)
+set(VERSION_INFO_API_COMPAT    0)
+set(VERSION_INFO_MINOR_VERSION 0)
+set(VERSION_INFO_MAINT_VERSION git)
+
 ########################################################################
 # Compiler specific setup
 ########################################################################
 if(CMAKE_COMPILER_IS_GNUCXX AND NOT WIN32)
     #http://gcc.gnu.org/wiki/Visibility
-    add_definitions(-fvisibility=hidden -std=c++11 -lcurl)
+    add_definitions(-fvisibility=hidden)
 endif()
 
 ########################################################################
@@ -60,7 +72,7 @@ set(Boost_ADDITIONAL_VERSIONS
 find_package(Boost "1.35" COMPONENTS filesystem system)
 
 if(NOT Boost_FOUND)
-    message(FATAL_ERROR "Boost required to compile msod_sensor")
+    message(FATAL_ERROR "Boost required to compile spectrum_latency")
 endif()
 
 ########################################################################
@@ -69,7 +81,7 @@ endif()
 include(GrPlatform) #define LIB_SUFFIX
 set(GR_RUNTIME_DIR      bin)
 set(GR_LIBRARY_DIR      lib${LIB_SUFFIX})
-set(GR_INCLUDE_DIR      include/msod_sensor)
+set(GR_INCLUDE_DIR      include/spectrum_latency)
 set(GR_DATA_DIR         share)
 set(GR_PKG_DATA_DIR     ${GR_DATA_DIR}/${CMAKE_PROJECT_NAME})
 set(GR_DOC_DIR          ${GR_DATA_DIR}/doc)
@@ -112,14 +124,11 @@ find_package(Doxygen)
 # API compatible version required.
 set(GR_REQUIRED_COMPONENTS RUNTIME)
 find_package(Gnuradio "3.7.2" REQUIRED)
+list(INSERT CMAKE_MODULE_PATH 0 ${CMAKE_SOURCE_DIR}/cmake/Modules)
+include(GrVersion)
 
 if(NOT CPPUNIT_FOUND)
-    message(FATAL_ERROR "CppUnit required to compile msod_sensor")
-endif()
-
-find_package(Curl)
-if (NOT CURL_FOUND) 
-    message(FATAL_ERROR "Curl required to compile")
+    message(FATAL_ERROR "CppUnit required to compile spectrum_latency")
 endif()
 
 ########################################################################
@@ -142,19 +151,17 @@ include_directories(
     ${Boost_INCLUDE_DIRS}
     ${CPPUNIT_INCLUDE_DIRS}
     ${GNURADIO_ALL_INCLUDE_DIRS}
-    ${CURL_INCLUDE_DIRS}
 )
 
 link_directories(
     ${Boost_LIBRARY_DIRS}
     ${CPPUNIT_LIBRARY_DIRS}
     ${GNURADIO_RUNTIME_LIBRARY_DIRS}
-    ${CURL_LIBRARY_DIRS}
 )
 
 # Set component parameters
-set(GR_MSOD_SENSOR_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/include CACHE INTERNAL "" FORCE)
-set(GR_MSOD_SENSOR_SWIG_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/swig CACHE INTERNAL "" FORCE)
+set(GR_SPECTRUM_LATENCY_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/include CACHE INTERNAL "" FORCE)
+set(GR_SPECTRUM_LATENCY_SWIG_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR}/swig CACHE INTERNAL "" FORCE)
 
 ########################################################################
 # Create uninstall target
@@ -171,7 +178,7 @@ add_custom_target(uninstall
 ########################################################################
 # Add subdirectories
 ########################################################################
-add_subdirectory(include/msod_sensor)
+add_subdirectory(include/spectrum_latency)
 add_subdirectory(lib)
 add_subdirectory(swig)
 add_subdirectory(python)
@@ -186,6 +193,6 @@ if(NOT CMAKE_MODULES_DIR)
   set(CMAKE_MODULES_DIR lib${LIB_SUFFIX}/cmake)
 endif(NOT CMAKE_MODULES_DIR)
 
-install(FILES cmake/Modules/msod_sensorConfig.cmake
-    DESTINATION ${CMAKE_MODULES_DIR}/msod_sensor
+install(FILES cmake/Modules/spectrum_latencyConfig.cmake
+    DESTINATION ${CMAKE_MODULES_DIR}/spectrum_latency
 )

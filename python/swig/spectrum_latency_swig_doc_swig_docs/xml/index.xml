@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygenindex xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="index.xsd" version="1.8.6">
+  <compound refid="classgr_1_1spectrum__latency_1_1bin__aggregator" kind="class"><name>gr::spectrum_latency::bin_aggregator</name>
+    <member refid="classgr_1_1spectrum__latency_1_1bin__aggregator_1a625bd8d1e1121721005b4e3758560c39" kind="typedef"><name>sptr</name></member>
+    <member refid="classgr_1_1spectrum__latency_1_1bin__aggregator_1aa6cb010c92cd5a548bce5ef2e4afeca0" kind="function"><name>make</name></member>
+    <member refid="classgr_1_1spectrum__latency_1_1bin__aggregator_1a31a7e26f2edfd109f5dfaff3621b9b18" kind="function"><name>set_bin_index</name></member>
+    <member refid="classgr_1_1spectrum__latency_1_1bin__aggregator_1acb4edef23a9674a2b94c00bdf13bbc65" kind="function"><name>bin_freq</name></member>
+  </compound>
+  <compound refid="classgr_1_1spectrum__latency_1_1bin__statistics" kind="class"><name>gr::spectrum_latency::bin_statistics</name>
+    <member refid="classgr_1_1spectrum__latency_1_1bin__statistics_1acc06922d7d70eef944ab258125b2ab83" kind="typedef"><name>sptr</name></member>
+    <member refid="classgr_1_1spectrum__latency_1_1bin__statistics_1a00a7e6852e88ad4cfb04280ada8c92ef" kind="function"><name>make</name></member>
+  </compound>
+  <compound refid="namespacegr" kind="namespace"><name>gr</name>
+  </compound>
+  <compound refid="namespacegr_1_1spectrum__latency" kind="namespace"><name>gr::spectrum_latency</name>
+  </compound>
+  <compound refid="namespacestd" kind="namespace"><name>std</name>
+  </compound>
+  <compound refid="api_8h" kind="file"><name>api.h</name>
+    <member refid="api_8h_1a0902ec52121b6d466992b90b93597017" kind="define"><name>SPECTRUM_LATENCY_API</name></member>
+  </compound>
+  <compound refid="bin__aggregator_8h" kind="file"><name>bin_aggregator.h</name>
+  </compound>
+  <compound refid="bin__statistics_8h" kind="file"><name>bin_statistics.h</name>
+  </compound>
+  <compound refid="dir_d44c64559bbebec7f509842c48db8b23" kind="dir"><name>/raid/nae/pybombs/src/gr-spectrum_latency/include</name>
+  </compound>
+  <compound refid="dir_6b5fde2c08d9024d87ab6d7dcd19cf52" kind="dir"><name>/raid/nae/pybombs/src/gr-spectrum_latency/include/spectrum_latency</name>
+  </compound>
+</doxygenindex>

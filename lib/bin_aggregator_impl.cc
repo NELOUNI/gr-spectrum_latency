@@ -27,7 +27,7 @@
 #include <math.h>
 
 namespace gr {
-  namespace msod_sensor {
+  namespace spectrum_latency {
 
     bin_aggregator::sptr
     bin_aggregator::make(unsigned int input_vlen, unsigned int output_vlen, float samp_rate, float fft_size, float center_freq, float bandwidth, float channel_bw, const std::vector<unsigned int> &output_bin_index)
@@ -109,6 +109,6 @@ namespace gr {
         return noutput_items;
     }
 
-  } /* namespace msod_sensor */
+  } /* namespace spectrum_latency */
 } /* namespace gr */
 

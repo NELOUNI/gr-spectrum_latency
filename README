@@ -1,7 +1,0 @@
-Dependency:
-+++++++++++
-
-Curl for C++: https://github.com/bagder/curl.git
-or use this URL: http://curl.haxx.se/download.html
-
-After Installation replace "/PATH/FOR/CURL/Install/" in ./build/cmake.sh and proceed with make -j n and make install

@@ -1,4 +1,4 @@
-# Copyright 2011,2012 Free Software Foundation, Inc.
+# Copyright 2011,2012,2016 Free Software Foundation, Inc.
 #
 # This file is part of GNU Radio
 #
@@ -23,27 +23,24 @@
 include(GrPlatform) #define LIB_SUFFIX
 
 include_directories(${Boost_INCLUDE_DIR})
-link_directories(${Boost_LIBRARY_DIRS} ${CURL_LIBRARY_DIRS})
-
-list(APPEND msod_sensor_sources
-    bin_statistics_impl.cc
-    bin_statistics_impl.cc
-    jsonfile_sink_impl.cc
+link_directories(${Boost_LIBRARY_DIRS})
+list(APPEND spectrum_latency_sources
     bin_aggregator_impl.cc
-)
+    bin_statistics_impl.cc
+    )
 
-set(msod_sensor_sources "${msod_sensor_sources}" PARENT_SCOPE)
-if(NOT msod_sensor_sources)
+set(spectrum_latency_sources "${spectrum_latency_sources}" PARENT_SCOPE)
+if(NOT spectrum_latency_sources)
 	MESSAGE(STATUS "No C++ sources... skipping lib/")
 	return()
-endif(NOT msod_sensor_sources)
+endif(NOT spectrum_latency_sources)
 
-add_library(gnuradio-msod_sensor SHARED ${msod_sensor_sources})
-target_link_libraries(gnuradio-msod_sensor ${Boost_LIBRARIES} ${GNURADIO_ALL_LIBRARIES} ${CURL_LIBRARIES} ${JSON_LIBRAIRIES})
-set_target_properties(gnuradio-msod_sensor PROPERTIES DEFINE_SYMBOL "gnuradio_msod_sensor_EXPORTS")
+add_library(gnuradio-spectrum_latency SHARED ${spectrum_latency_sources})
+target_link_libraries(gnuradio-spectrum_latency ${Boost_LIBRARIES} ${GNURADIO_ALL_LIBRARIES})
+set_target_properties(gnuradio-spectrum_latency PROPERTIES DEFINE_SYMBOL "gnuradio_spectrum_latency_EXPORTS")
 
 if(APPLE)
-    set_target_properties(gnuradio-msod_sensor PROPERTIES
+    set_target_properties(gnuradio-spectrum_latency PROPERTIES
         INSTALL_NAME_DIR "${CMAKE_INSTALL_PREFIX}/lib"
     )
 endif(APPLE)
@@ -51,11 +48,8 @@ endif(APPLE)
 ########################################################################
 # Install built library files
 ########################################################################
-install(TARGETS gnuradio-msod_sensor
-    LIBRARY DESTINATION lib${LIB_SUFFIX} # .so/.dylib file
-    ARCHIVE DESTINATION lib${LIB_SUFFIX} # .lib file
-    RUNTIME DESTINATION bin              # .dll file
-)
+include(GrMiscUtils)
+GR_LIBRARY_FOO(gnuradio-spectrum_latency RUNTIME_COMPONENT "spectrum_latency_runtime" DEVEL_COMPONENT "spectrum_latency_devel")
 
 ########################################################################
 # Build and register unit test
@@ -63,20 +57,27 @@ install(TARGETS gnuradio-msod_sensor
 include(GrTest)
 
 include_directories(${CPPUNIT_INCLUDE_DIRS})
-
-list(APPEND test_msod_sensor_sources
-    ${CMAKE_CURRENT_SOURCE_DIR}/test_msod_sensor.cc
-    ${CMAKE_CURRENT_SOURCE_DIR}/qa_msod_sensor.cc
+list(APPEND test_spectrum_latency_sources
+    ${CMAKE_CURRENT_SOURCE_DIR}/test_spectrum_latency.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/qa_spectrum_latency.cc
+    ${CMAKE_CURRENT_SOURCE_DIR}/qa_bin_statistics.cc
 )
 
-add_executable(test-msod_sensor ${test_msod_sensor_sources})
+add_executable(test-spectrum_latency ${test_spectrum_latency_sources})
 
 target_link_libraries(
-  test-msod_sensor
+  test-spectrum_latency
   ${GNURADIO_RUNTIME_LIBRARIES}
   ${Boost_LIBRARIES}
   ${CPPUNIT_LIBRARIES}
-  gnuradio-msod_sensor
+  gnuradio-spectrum_latency
 )
 
-GR_ADD_TEST(test_msod_sensor test-msod_sensor)
+GR_ADD_TEST(test_spectrum_latency test-spectrum_latency)
+
+########################################################################
+# Print summary
+########################################################################
+message(STATUS "Using install prefix: ${CMAKE_INSTALL_PREFIX}")
+message(STATUS "Building for version: ${VERSION} / ${LIBVER}")
+

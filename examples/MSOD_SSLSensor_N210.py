@@ -3,7 +3,7 @@
 ##################################################
 # GNU Radio Python Flow Graph
 # Title: Msod Sslsensor N210
-# Generated: Fri Mar 25 11:49:13 2016
+# Generated: Tue Aug 30 18:23:39 2016
 ##################################################
 
 if __name__ == '__main__':
@@ -29,7 +29,7 @@ from gnuradio.filter import firdes
 from gnuradio.qtgui import Range, RangeWidget
 from optparse import OptionParser
 import math
-import msod_sensor
+import spectrum_latency
 import sys
 import time
 
@@ -74,7 +74,7 @@ class MSOD_SSLSensor_N210(gr.top_block, Qt.QWidget):
         self.channel_bw = channel_bw = hz_per_bin * round(bandwidth / num_ch / hz_per_bin)
         self.rx_gain = rx_gain = 0
         self.meas_period = meas_period = max(1, int(round(meas_interval * samp_rate / fft_size)))
-        self.dest_host = dest_host = "pwct5.ctl.nist.gov"
+        self.dest_host = dest_host = "129.6.142.103"
         self.center_freq = center_freq = 724e6
         self.Vsq2W_dB = Vsq2W_dB = -10.0 * math.log10(fft_size * int(window_power) * impedance)
         self.ActualBW = ActualBW = channel_bw * num_ch
@@ -139,6 +139,18 @@ class MSOD_SSLSensor_N210(gr.top_block, Qt.QWidget):
         self._fft_size_combo_box.currentIndexChanged.connect(
         	lambda i: self.set_fft_size(self._fft_size_options[i]))
         self.top_layout.addWidget(self._fft_size_tool_bar)
+        self._dest_host_options = ("pwct1.ctl.nist.gov", "129.6.142.103", "129.6.142.181", "pwct5.ctl.nist.gov", )
+        self._dest_host_labels = ("pwct1", "NEO_VM", "pwct5Desktop", "Pwct5", )
+        self._dest_host_tool_bar = Qt.QToolBar(self)
+        self._dest_host_tool_bar.addWidget(Qt.QLabel(dest_host+": "))
+        self._dest_host_combo_box = Qt.QComboBox()
+        self._dest_host_tool_bar.addWidget(self._dest_host_combo_box)
+        for label in self._dest_host_labels: self._dest_host_combo_box.addItem(label)
+        self._dest_host_callback = lambda i: Qt.QMetaObject.invokeMethod(self._dest_host_combo_box, "setCurrentIndex", Qt.Q_ARG("int", self._dest_host_options.index(i)))
+        self._dest_host_callback(self.dest_host)
+        self._dest_host_combo_box.currentIndexChanged.connect(
+        	lambda i: self.set_dest_host(self._dest_host_options[i]))
+        self.top_layout.addWidget(self._dest_host_tool_bar)
         self._center_freq_options = (709.01e6, 782e6, 724e6, )
         self._center_freq_labels = ("AT&T", "Verizon", "ChannelEmulator", )
         self._center_freq_tool_bar = Qt.QToolBar(self)
@@ -151,37 +163,6 @@ class MSOD_SSLSensor_N210(gr.top_block, Qt.QWidget):
         self._center_freq_combo_box.currentIndexChanged.connect(
         	lambda i: self.set_center_freq(self._center_freq_options[i]))
         self.top_layout.addWidget(self._center_freq_tool_bar)
-        self.uhd_usrp_source_0 = uhd.usrp_source(
-        	",".join(("addr=usrp1", "")),
-        	uhd.stream_args(
-        		cpu_format="fc32",
-        		channels=range(1),
-        	),
-        )
-        self.uhd_usrp_source_0.set_samp_rate(samp_rate)
-        self.uhd_usrp_source_0.set_center_freq(center_freq, 0)
-        self.uhd_usrp_source_0.set_gain(rx_gain, 0)
-        self.uhd_usrp_source_0.set_antenna("TX/RX", 0)
-        self.msod_sensor_jsonfile_sink_0 = msod_sensor.jsonfile_sink(num_ch, "/home/nae/capture/capture_USRP/03_25_2016-001.dat", "/raid/nae/pybombs/src/gr-msod_latency/examples/sensor.loc", "/raid/nae/pybombs/src/gr-msod_latency/examples/sensor.sys", "E6R16W5XS", "NaN", center_freq, ActualBW, meas_interval, 0, samp_rate, False)
-        self.msod_sensor_bin_statistics_0 = msod_sensor.bin_statistics(num_ch, meas_period)
-        self.msod_sensor_bin_aggregator_0 = msod_sensor.bin_aggregator(fft_size, num_ch, samp_rate, fft_size, center_freq, ActualBW, channel_bw, [0] * fft_size, False)
-        self.fft_vxx_0 = fft.fft_vcc(fft_size, True, (mywindow), True, 1)
-        self._dest_host_options = ("pwct1.ctl.nist.gov", "129.6.230.12", "129.6.142.181", "pwct5.ctl.nist.gov", )
-        self._dest_host_labels = ("pwct1", "Naceur Laptop", "pwct5Desktop", "Pwct5", )
-        self._dest_host_tool_bar = Qt.QToolBar(self)
-        self._dest_host_tool_bar.addWidget(Qt.QLabel(dest_host+": "))
-        self._dest_host_combo_box = Qt.QComboBox()
-        self._dest_host_tool_bar.addWidget(self._dest_host_combo_box)
-        for label in self._dest_host_labels: self._dest_host_combo_box.addItem(label)
-        self._dest_host_callback = lambda i: Qt.QMetaObject.invokeMethod(self._dest_host_combo_box, "setCurrentIndex", Qt.Q_ARG("int", self._dest_host_options.index(i)))
-        self._dest_host_callback(self.dest_host)
-        self._dest_host_combo_box.currentIndexChanged.connect(
-        	lambda i: self.set_dest_host(self._dest_host_options[i]))
-        self.top_layout.addWidget(self._dest_host_tool_bar)
-        self.blocks_stream_to_vector_0 = blocks.stream_to_vector(gr.sizeof_gr_complex*1, fft_size)
-        self.blocks_nlog10_ff_0 = blocks.nlog10_ff(10, num_ch, 30.0 + Vsq2W_dB)
-        self.blocks_float_to_char_0 = blocks.float_to_char(num_ch, 1.0)
-        self.blocks_complex_to_mag_squared_0 = blocks.complex_to_mag_squared(fft_size)
         self._bandwidth_options = (10.08e6, 9e6, 4.5e6, 2.7e6, 1.08e6, )
         self._bandwidth_labels = ("10.08e6", "9e6", "4.5e6", "2.7e6", "1.08e6", )
         self._bandwidth_tool_bar = Qt.QToolBar(self)
@@ -194,17 +175,38 @@ class MSOD_SSLSensor_N210(gr.top_block, Qt.QWidget):
         self._bandwidth_combo_box.currentIndexChanged.connect(
         	lambda i: self.set_bandwidth(self._bandwidth_options[i]))
         self.top_layout.addWidget(self._bandwidth_tool_bar)
+        self.uhd_usrp_source_0 = uhd.usrp_source(
+        	",".join(("addr=usrp1", "")),
+        	uhd.stream_args(
+        		cpu_format="fc32",
+        		channels=range(1),
+        	),
+        )
+        self.uhd_usrp_source_0.set_samp_rate(samp_rate)
+        self.uhd_usrp_source_0.set_center_freq(center_freq, 0)
+        self.uhd_usrp_source_0.set_gain(rx_gain, 0)
+        self.uhd_usrp_source_0.set_antenna("TX/RX", 0)
+        self.spectrum_latency_sslsocket_sink_0 = spectrum_latency.sslsocket_sink(num_ch, dest_host, "/raid/nae/pybombs/src/gr-spectrum_latency/examples/sensor.loc", "/raid/nae/pybombs/src/gr-spectrum_latency/examples/sensor.sys", "F37258", "12345", center_freq, bandwidth, meas_interval, 0)
+        self.spectrum_latency_jsonfile_sink_0 = spectrum_latency.jsonfile_sink(num_ch, "/home/nae/SpectrumMonitorSensors/N210", "/raid/nae/pybombs/src/gr-msod_latency/examples/sensor.loc", "/raid/nae/pybombs/src/gr-msod_latency/examples/sensor.sys", "F37258", "12345", center_freq, bandwidth, meas_interval, 0)
+        self.spectrum_latency_bin_statistics_0 = spectrum_latency.bin_statistics(num_ch, meas_period)
+        self.spectrum_latency_bin_aggregator_0 = spectrum_latency.bin_aggregator(fft_size, num_ch, samp_rate, fft_size, center_freq, ActualBW, channel_bw, [0] * fft_size)
+        self.fft_vxx_0 = fft.fft_vcc(fft_size, True, (mywindow), True, 1)
+        self.blocks_stream_to_vector_0 = blocks.stream_to_vector(gr.sizeof_gr_complex*1, fft_size)
+        self.blocks_nlog10_ff_0 = blocks.nlog10_ff(10, num_ch, 30.0 + Vsq2W_dB)
+        self.blocks_float_to_char_0 = blocks.float_to_char(num_ch, 1.0)
+        self.blocks_complex_to_mag_squared_0 = blocks.complex_to_mag_squared(fft_size)
 
         ##################################################
         # Connections
         ##################################################
-        self.connect((self.blocks_complex_to_mag_squared_0, 0), (self.msod_sensor_bin_aggregator_0, 0))    
-        self.connect((self.blocks_float_to_char_0, 0), (self.msod_sensor_jsonfile_sink_0, 0))    
+        self.connect((self.blocks_complex_to_mag_squared_0, 0), (self.spectrum_latency_bin_aggregator_0, 0))    
+        self.connect((self.blocks_float_to_char_0, 0), (self.spectrum_latency_jsonfile_sink_0, 0))    
+        self.connect((self.blocks_float_to_char_0, 0), (self.spectrum_latency_sslsocket_sink_0, 0))    
         self.connect((self.blocks_nlog10_ff_0, 0), (self.blocks_float_to_char_0, 0))    
         self.connect((self.blocks_stream_to_vector_0, 0), (self.fft_vxx_0, 0))    
         self.connect((self.fft_vxx_0, 0), (self.blocks_complex_to_mag_squared_0, 0))    
-        self.connect((self.msod_sensor_bin_aggregator_0, 0), (self.msod_sensor_bin_statistics_0, 0))    
-        self.connect((self.msod_sensor_bin_statistics_0, 0), (self.blocks_nlog10_ff_0, 0))    
+        self.connect((self.spectrum_latency_bin_aggregator_0, 0), (self.spectrum_latency_bin_statistics_0, 0))    
+        self.connect((self.spectrum_latency_bin_statistics_0, 0), (self.blocks_nlog10_ff_0, 0))    
         self.connect((self.uhd_usrp_source_0, 0), (self.blocks_stream_to_vector_0, 0))    
 
     def closeEvent(self, event):
@@ -212,36 +214,35 @@ class MSOD_SSLSensor_N210(gr.top_block, Qt.QWidget):
         self.settings.setValue("geometry", self.saveGeometry())
         event.accept()
 
-
     def get_samp_rate(self):
         return self.samp_rate
 
     def set_samp_rate(self, samp_rate):
         self.samp_rate = samp_rate
-        self.set_hz_per_bin(self.samp_rate / self.fft_size)
-        self.set_meas_period(max(1, int(round(self.meas_interval * self.samp_rate / self.fft_size))))
         self._samp_rate_callback(self.samp_rate)
+        self.set_meas_period(max(1, int(round(self.meas_interval * self.samp_rate / self.fft_size))))
         self.uhd_usrp_source_0.set_samp_rate(self.samp_rate)
+        self.set_hz_per_bin(self.samp_rate / self.fft_size)
 
     def get_fft_size(self):
         return self.fft_size
 
     def set_fft_size(self, fft_size):
         self.fft_size = fft_size
-        self.set_Vsq2W_dB(-10.0 * math.log10(self.fft_size * int(self.window_power) * self.impedance))
-        self._fft_size_callback(self.fft_size)
-        self.set_hz_per_bin(self.samp_rate / self.fft_size)
-        self.set_meas_period(max(1, int(round(self.meas_interval * self.samp_rate / self.fft_size))))
         self.set_mywindow(window.blackmanharris(self.fft_size))
+        self.set_meas_period(max(1, int(round(self.meas_interval * self.samp_rate / self.fft_size))))
+        self._fft_size_callback(self.fft_size)
+        self.set_Vsq2W_dB(-10.0 * math.log10(self.fft_size * int(self.window_power) * self.impedance))
+        self.set_hz_per_bin(self.samp_rate / self.fft_size)
 
     def get_num_ch(self):
         return self.num_ch
 
     def set_num_ch(self, num_ch):
         self.num_ch = num_ch
-        self.set_ActualBW(self.channel_bw * self.num_ch)
-        self.set_channel_bw(self.hz_per_bin * round(self.bandwidth / self.num_ch / self.hz_per_bin))
         self._num_ch_callback(self.num_ch)
+        self.set_channel_bw(self.hz_per_bin * round(self.bandwidth / self.num_ch / self.hz_per_bin))
+        self.set_ActualBW(self.channel_bw * self.num_ch)
 
     def get_mywindow(self):
         return self.mywindow
@@ -262,8 +263,8 @@ class MSOD_SSLSensor_N210(gr.top_block, Qt.QWidget):
 
     def set_bandwidth(self, bandwidth):
         self.bandwidth = bandwidth
-        self._bandwidth_callback(self.bandwidth)
         self.set_channel_bw(self.hz_per_bin * round(self.bandwidth / self.num_ch / self.hz_per_bin))
+        self._bandwidth_callback(self.bandwidth)
 
     def get_window_power(self):
         return self.window_power
