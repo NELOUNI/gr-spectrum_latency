@@ -1,8 +1,9 @@
 #!/usr/bin/env python2
+# -*- coding: utf-8 -*-
 ##################################################
 # GNU Radio Python Flow Graph
 # Title: Rfile Non Rfnoc
-# Generated: Fri Oct 23 16:24:45 2015
+# Generated: Fri Mar 25 16:56:24 2016
 ##################################################
 
 if __name__ == '__main__':
@@ -28,11 +29,11 @@ from gnuradio.filter import firdes
 from gnuradio.qtgui import Range, RangeWidget
 from optparse import OptionParser
 import math
-import myblocks
+import msod_sensor
 import sys
 import time
 
-from distutils.version import StrictVersion
+
 class rfile_non_RFNoC(gr.top_block, Qt.QWidget):
 
     def __init__(self):
@@ -40,9 +41,9 @@ class rfile_non_RFNoC(gr.top_block, Qt.QWidget):
         Qt.QWidget.__init__(self)
         self.setWindowTitle("Rfile Non Rfnoc")
         try:
-             self.setWindowIcon(Qt.QIcon.fromTheme('gnuradio-grc'))
+            self.setWindowIcon(Qt.QIcon.fromTheme('gnuradio-grc'))
         except:
-             pass
+            pass
         self.top_scroll_layout = Qt.QVBoxLayout()
         self.setLayout(self.top_scroll_layout)
         self.top_scroll = Qt.QScrollArea()
@@ -57,7 +58,6 @@ class rfile_non_RFNoC(gr.top_block, Qt.QWidget):
 
         self.settings = Qt.QSettings("GNU Radio", "rfile_non_RFNoC")
         self.restoreGeometry(self.settings.value("geometry").toByteArray())
-
 
         ##################################################
         # Variables
@@ -139,18 +139,6 @@ class rfile_non_RFNoC(gr.top_block, Qt.QWidget):
         self._fft_size_combo_box.currentIndexChanged.connect(
         	lambda i: self.set_fft_size(self._fft_size_options[i]))
         self.top_layout.addWidget(self._fft_size_tool_bar)
-        self._dest_host_options = ("pwct1.ctl.nist.gov", "129.6.230.12", "129.6.142.181", "129.6.142.138", )
-        self._dest_host_labels = ("pwct1", "Naceur Laptop", "pwct5Desktop", "Pwct5", )
-        self._dest_host_tool_bar = Qt.QToolBar(self)
-        self._dest_host_tool_bar.addWidget(Qt.QLabel(dest_host+": "))
-        self._dest_host_combo_box = Qt.QComboBox()
-        self._dest_host_tool_bar.addWidget(self._dest_host_combo_box)
-        for label in self._dest_host_labels: self._dest_host_combo_box.addItem(label)
-        self._dest_host_callback = lambda i: Qt.QMetaObject.invokeMethod(self._dest_host_combo_box, "setCurrentIndex", Qt.Q_ARG("int", self._dest_host_options.index(i)))
-        self._dest_host_callback(self.dest_host)
-        self._dest_host_combo_box.currentIndexChanged.connect(
-        	lambda i: self.set_dest_host(self._dest_host_options[i]))
-        self.top_layout.addWidget(self._dest_host_tool_bar)
         self._center_freq_options = (709.01e6, 782e6, 724e6, )
         self._center_freq_labels = ("AT&T", "Verizon", "ChannelEmulator", )
         self._center_freq_tool_bar = Qt.QToolBar(self)
@@ -164,7 +152,7 @@ class rfile_non_RFNoC(gr.top_block, Qt.QWidget):
         	lambda i: self.set_center_freq(self._center_freq_options[i]))
         self.top_layout.addWidget(self._center_freq_tool_bar)
         self.uhd_usrp_source_0 = uhd.usrp_source(
-        	",".join(("addr=172.16.20.2", "")),
+        	",".join(("addr=usrp1", "")),
         	uhd.stream_args(
         		cpu_format="fc32",
         		channels=range(1),
@@ -174,10 +162,22 @@ class rfile_non_RFNoC(gr.top_block, Qt.QWidget):
         self.uhd_usrp_source_0.set_center_freq(center_freq, 0)
         self.uhd_usrp_source_0.set_gain(rx_gain, 0)
         self.uhd_usrp_source_0.set_antenna("TX/RX", 0)
-        self.myblocks_sslsocket_sink_0 = myblocks.sslsocket_sink(num_ch, dest_host, "/home/naceur/Documents/spectrum_monitor_sensors/gr-myblocks/examples/utils/sensor.loc", "/home/naceur/Documents/spectrum_monitor_sensors/gr-myblocks/examples/utils/sensor.sys", "E6R16W5XS", "NaN", center_freq, ActualBW, meas_interval, 0)
-        self.myblocks_bin_statistics_0 = myblocks.bin_statistics(num_ch, meas_period)
-        self.myblocks_bin_aggregator_0 = myblocks.bin_aggregator(fft_size, num_ch, samp_rate, fft_size, center_freq, ActualBW, channel_bw, [0] * fft_size)
+        self.msod_sensor_jsonfile_sink_0 = msod_sensor.jsonfile_sink(num_ch, "/raid/nae/myFile_003.dat", "/raid/nae/pybombs/src/gr-msod_latency/examples/sensor.loc", "/raid/nae/pybombs/src/gr-msod_latency/examples/sensor.sys", "F373DF", "NaN", center_freq, ActualBW, meas_interval, 0, samp_rate, False)
+        self.msod_sensor_bin_statistics_0 = msod_sensor.bin_statistics(num_ch, meas_period)
+        self.msod_sensor_bin_aggregator_0 = msod_sensor.bin_aggregator(fft_size, num_ch, samp_rate, fft_size, center_freq, ActualBW, channel_bw, [0] * fft_size, True)
         self.fft_vxx_0 = fft.fft_vcc(fft_size, True, (mywindow), True, 1)
+        self._dest_host_options = ("pwct1.ctl.nist.gov", "129.6.230.12", "129.6.142.181", "129.6.142.138", )
+        self._dest_host_labels = ("pwct1", "Naceur Laptop", "pwct5Desktop", "Pwct5", )
+        self._dest_host_tool_bar = Qt.QToolBar(self)
+        self._dest_host_tool_bar.addWidget(Qt.QLabel("dest_host"+": "))
+        self._dest_host_combo_box = Qt.QComboBox()
+        self._dest_host_tool_bar.addWidget(self._dest_host_combo_box)
+        for label in self._dest_host_labels: self._dest_host_combo_box.addItem(label)
+        self._dest_host_callback = lambda i: Qt.QMetaObject.invokeMethod(self._dest_host_combo_box, "setCurrentIndex", Qt.Q_ARG("int", self._dest_host_options.index(i)))
+        self._dest_host_callback(self.dest_host)
+        self._dest_host_combo_box.currentIndexChanged.connect(
+        	lambda i: self.set_dest_host(self._dest_host_options[i]))
+        self.top_layout.addWidget(self._dest_host_tool_bar)
         self.blocks_stream_to_vector_0 = blocks.stream_to_vector(gr.sizeof_gr_complex*1, fft_size)
         self.blocks_nlog10_ff_0 = blocks.nlog10_ff(10, num_ch, 30.0 + Vsq2W_dB)
         self.blocks_float_to_char_0 = blocks.float_to_char(num_ch, 1.0)
@@ -198,19 +198,20 @@ class rfile_non_RFNoC(gr.top_block, Qt.QWidget):
         ##################################################
         # Connections
         ##################################################
-        self.connect((self.blocks_float_to_char_0, 0), (self.myblocks_sslsocket_sink_0, 0))    
+        self.connect((self.blocks_complex_to_mag_squared_0, 0), (self.msod_sensor_bin_aggregator_0, 0))    
+        self.connect((self.blocks_float_to_char_0, 0), (self.msod_sensor_jsonfile_sink_0, 0))    
         self.connect((self.blocks_nlog10_ff_0, 0), (self.blocks_float_to_char_0, 0))    
         self.connect((self.blocks_stream_to_vector_0, 0), (self.fft_vxx_0, 0))    
         self.connect((self.fft_vxx_0, 0), (self.blocks_complex_to_mag_squared_0, 0))    
-        self.connect((self.myblocks_bin_aggregator_0, 0), (self.myblocks_bin_statistics_0, 0))    
-        self.connect((self.myblocks_bin_statistics_0, 0), (self.blocks_nlog10_ff_0, 0))    
+        self.connect((self.msod_sensor_bin_aggregator_0, 0), (self.msod_sensor_bin_statistics_0, 0))    
+        self.connect((self.msod_sensor_bin_statistics_0, 0), (self.blocks_nlog10_ff_0, 0))    
         self.connect((self.uhd_usrp_source_0, 0), (self.blocks_stream_to_vector_0, 0))    
-        self.connect((self.blocks_complex_to_mag_squared_0, 0), (self.myblocks_bin_aggregator_0, 0))    
 
     def closeEvent(self, event):
         self.settings = Qt.QSettings("GNU Radio", "rfile_non_RFNoC")
         self.settings.setValue("geometry", self.saveGeometry())
         event.accept()
+
 
     def get_samp_rate(self):
         return self.samp_rate
@@ -298,6 +299,7 @@ class rfile_non_RFNoC(gr.top_block, Qt.QWidget):
     def set_rx_gain(self, rx_gain):
         self.rx_gain = rx_gain
         self.uhd_usrp_source_0.set_gain(self.rx_gain, 0)
+        	
 
     def get_meas_period(self):
         return self.meas_period
@@ -333,18 +335,24 @@ class rfile_non_RFNoC(gr.top_block, Qt.QWidget):
         self.ActualBW = ActualBW
 
 
-if __name__ == '__main__':
-    parser = OptionParser(option_class=eng_option, usage="%prog: [options]")
-    (options, args) = parser.parse_args()
-    if(StrictVersion(Qt.qVersion()) >= StrictVersion("4.5.0")):
-        Qt.QApplication.setGraphicsSystem(gr.prefs().get_string('qtgui','style','raster'))
+def main(top_block_cls=rfile_non_RFNoC, options=None):
+
+    from distutils.version import StrictVersion
+    if StrictVersion(Qt.qVersion()) >= StrictVersion("4.5.0"):
+        style = gr.prefs().get_string('qtgui', 'style', 'raster')
+        Qt.QApplication.setGraphicsSystem(style)
     qapp = Qt.QApplication(sys.argv)
-    tb = rfile_non_RFNoC()
+
+    tb = top_block_cls()
     tb.start()
     tb.show()
+
     def quitting():
         tb.stop()
         tb.wait()
     qapp.connect(qapp, Qt.SIGNAL("aboutToQuit()"), quitting)
     qapp.exec_()
-    tb = None #to clean up Qt widgets
+
+
+if __name__ == '__main__':
+    main()

@@ -1,8 +1,9 @@
-#!/usr/bin/env python
+#!/usr/bin/env python2
+# -*- coding: utf-8 -*-
 ##################################################
-# Gnuradio Python Flow Graph
+# GNU Radio Python Flow Graph
 # Title: Msod Sslsensor Hackrf
-# Generated: Tue Nov 10 13:19:41 2015
+# Generated: Wed Feb  3 11:34:34 2016
 ##################################################
 
 if __name__ == '__main__':
@@ -24,15 +25,15 @@ from gnuradio import gr
 from gnuradio.eng_option import eng_option
 from gnuradio.fft import window
 from gnuradio.filter import firdes
+from gnuradio.qtgui import Range, RangeWidget
 from optparse import OptionParser
-import PyQt4.Qwt5 as Qwt
 import math
 import msod_sensor
 import osmosdr
 import sys
 import time
 
-from distutils.version import StrictVersion
+
 class MSOD_SSLSensor_HackRF(gr.top_block, Qt.QWidget):
 
     def __init__(self):
@@ -40,9 +41,9 @@ class MSOD_SSLSensor_HackRF(gr.top_block, Qt.QWidget):
         Qt.QWidget.__init__(self)
         self.setWindowTitle("Msod Sslsensor Hackrf")
         try:
-             self.setWindowIcon(Qt.QIcon.fromTheme('gnuradio-grc'))
+            self.setWindowIcon(Qt.QIcon.fromTheme('gnuradio-grc'))
         except:
-             pass
+            pass
         self.top_scroll_layout = Qt.QVBoxLayout()
         self.setLayout(self.top_scroll_layout)
         self.top_scroll = Qt.QScrollArea()
@@ -58,11 +59,10 @@ class MSOD_SSLSensor_HackRF(gr.top_block, Qt.QWidget):
         self.settings = Qt.QSettings("GNU Radio", "MSOD_SSLSensor_HackRF")
         self.restoreGeometry(self.settings.value("geometry").toByteArray())
 
-
         ##################################################
         # Variables
         ##################################################
-        self.samp_rate = samp_rate = 20e6
+        self.samp_rate = samp_rate = 10e6
         self.fft_size = fft_size = 1000
         self.num_ch = num_ch = 50
         self.mywindow = mywindow = window.blackmanharris(fft_size)
@@ -74,7 +74,7 @@ class MSOD_SSLSensor_HackRF(gr.top_block, Qt.QWidget):
         self.channel_bw = channel_bw = hz_per_bin * round(bandwidth / num_ch / hz_per_bin)
         self.rx_gain = rx_gain = 0
         self.meas_period = meas_period = max(1, int(round(meas_interval * samp_rate / fft_size)))
-        self.dest_host = dest_host = "129.6.142.138"
+        self.dest_host = dest_host = "pwct5.ctl.nist.gov"
         self.center_freq = center_freq = 724e6
         self.Vsq2W_dB = Vsq2W_dB = -10.0 * math.log10(fft_size * int(window_power) * impedance)
         self.ActualBW = ActualBW = channel_bw * num_ch
@@ -82,8 +82,8 @@ class MSOD_SSLSensor_HackRF(gr.top_block, Qt.QWidget):
         ##################################################
         # Blocks
         ##################################################
-        self._samp_rate_options = (20e6, 15.36e6, 7.68e6, 3.84e6, 1.92e6, )
-        self._samp_rate_labels = ("20e6", "15.36e6", "7.68e6", "3.84e6", "1.92e6", )
+        self._samp_rate_options = (10e6, 15.36e6, 7.68e6, 3.84e6, 1.92e6, )
+        self._samp_rate_labels = ("10e6", "15.36e6", "7.68e6", "3.84e6", "1.92e6", )
         self._samp_rate_group_box = Qt.QGroupBox("samp_rate")
         self._samp_rate_box = Qt.QVBoxLayout()
         class variable_chooser_button_group(Qt.QButtonGroup):
@@ -136,7 +136,7 @@ class MSOD_SSLSensor_HackRF(gr.top_block, Qt.QWidget):
         self._fft_size_combo_box.currentIndexChanged.connect(
         	lambda i: self.set_fft_size(self._fft_size_options[i]))
         self.top_layout.addWidget(self._fft_size_tool_bar)
-        self._dest_host_options = ("pwct1.ctl.nist.gov", "129.6.230.12", "129.6.142.181", "129.6.142.138", )
+        self._dest_host_options = ("pwct1.ctl.nist.gov", "129.6.230.12", "pwc8.ctl.nist.gov", "pwct5.ctl.nist.gov", )
         self._dest_host_labels = ("pwct1", "Naceur Laptop", "pwct5Desktop", "Pwct5", )
         self._dest_host_tool_bar = Qt.QToolBar(self)
         self._dest_host_tool_bar.addWidget(Qt.QLabel(dest_host+": "))
@@ -148,8 +148,8 @@ class MSOD_SSLSensor_HackRF(gr.top_block, Qt.QWidget):
         self._dest_host_combo_box.currentIndexChanged.connect(
         	lambda i: self.set_dest_host(self._dest_host_options[i]))
         self.top_layout.addWidget(self._dest_host_tool_bar)
-        self._center_freq_options = (709.01e6, 782e6, 724e6, )
-        self._center_freq_labels = ("AT&T", "Verizon", "ChannelEmulator", )
+        self._center_freq_options = (709.01e6, 782e6, 724e6, 729e6, )
+        self._center_freq_labels = ("AT&T", "Verizon", "ChannelEmulator", "HackRF Shifted Freq", )
         self._center_freq_tool_bar = Qt.QToolBar(self)
         self._center_freq_tool_bar.addWidget(Qt.QLabel("center_freq"+": "))
         self._center_freq_combo_box = Qt.QComboBox()
@@ -160,45 +160,25 @@ class MSOD_SSLSensor_HackRF(gr.top_block, Qt.QWidget):
         self._center_freq_combo_box.currentIndexChanged.connect(
         	lambda i: self.set_center_freq(self._center_freq_options[i]))
         self.top_layout.addWidget(self._center_freq_tool_bar)
-        self._rx_gain_layout = Qt.QVBoxLayout()
-        self._rx_gain_tool_bar = Qt.QToolBar(self)
-        self._rx_gain_layout.addWidget(self._rx_gain_tool_bar)
-        self._rx_gain_tool_bar.addWidget(Qt.QLabel("rx_gain"+": "))
-        class qwt_counter_pyslot(Qwt.QwtCounter):
-            def __init__(self, parent=None):
-                Qwt.QwtCounter.__init__(self, parent)
-            @pyqtSlot('double')
-            def setValue(self, value):
-                super(Qwt.QwtCounter, self).setValue(value)
-        self._rx_gain_counter = qwt_counter_pyslot()
-        self._rx_gain_counter.setRange(0, 31.5, 0.5)
-        self._rx_gain_counter.setNumButtons(2)
-        self._rx_gain_counter.setValue(self.rx_gain)
-        self._rx_gain_tool_bar.addWidget(self._rx_gain_counter)
-        self._rx_gain_counter.valueChanged.connect(self.set_rx_gain)
-        self._rx_gain_slider = Qwt.QwtSlider(None, Qt.Qt.Horizontal, Qwt.QwtSlider.BottomScale, Qwt.QwtSlider.BgSlot)
-        self._rx_gain_slider.setRange(0, 31.5, 0.5)
-        self._rx_gain_slider.setValue(self.rx_gain)
-        self._rx_gain_slider.setMinimumWidth(200)
-        self._rx_gain_slider.valueChanged.connect(self.set_rx_gain)
-        self._rx_gain_layout.addWidget(self._rx_gain_slider)
-        self.top_layout.addLayout(self._rx_gain_layout)
+        self._rx_gain_range = Range(0, 31.5, 0.5, 0, 200)
+        self._rx_gain_win = RangeWidget(self._rx_gain_range, self.set_rx_gain, "rx_gain", "counter_slider", float)
+        self.top_layout.addWidget(self._rx_gain_win)
         self.osmosdr_source_0 = osmosdr.source( args="numchan=" + str(1) + " " + "hackrf=0" )
         self.osmosdr_source_0.set_sample_rate(samp_rate)
-        self.osmosdr_source_0.set_center_freq(100e6, 0)
+        self.osmosdr_source_0.set_center_freq(center_freq, 0)
         self.osmosdr_source_0.set_freq_corr(0, 0)
-        self.osmosdr_source_0.set_dc_offset_mode(0, 0)
-        self.osmosdr_source_0.set_iq_balance_mode(0, 0)
-        self.osmosdr_source_0.set_gain_mode(False, 0)
+        self.osmosdr_source_0.set_dc_offset_mode(1, 0)
+        self.osmosdr_source_0.set_iq_balance_mode(2, 0)
+        self.osmosdr_source_0.set_gain_mode(True, 0)
         self.osmosdr_source_0.set_gain(0, 0)
         self.osmosdr_source_0.set_if_gain(32, 0)
         self.osmosdr_source_0.set_bb_gain(40, 0)
         self.osmosdr_source_0.set_antenna("", 0)
-        self.osmosdr_source_0.set_bandwidth(0, 0)
+        self.osmosdr_source_0.set_bandwidth(20e6, 0)
           
-        self.msod_sensor_sslsocket_sink_0 = msod_sensor.sslsocket_sink(num_ch, dest_host, "/home/naceur/Documents/spectrum_monitor_sensors/gr-msod_sensor/examples/utils/sensor.loc", "/home/naceur/Documents/spectrum_monitor_sensors/gr-msod_sensor/examples/utils/sensor.sys", "HackRF", "NaN", center_freq, ActualBW, meas_interval, 0, samp_rate, True)
+        self.msod_sensor_sslsocket_sink_0 = msod_sensor.sslsocket_sink(num_ch, dest_host, "/raid/nae/pybombs/src/gr-msod_latency/examples/sensor_HackRF.loc", "/raid/nae/pybombs/src/gr-msod_latency/examples/sensor_HackRF.sys", "HackRF", "NaN", center_freq, ActualBW, meas_interval, 0, samp_rate, False)
         self.msod_sensor_bin_statistics_0 = msod_sensor.bin_statistics(num_ch, meas_period)
-        self.msod_sensor_bin_aggregator_0 = msod_sensor.bin_aggregator(fft_size, num_ch, samp_rate, fft_size, center_freq, ActualBW, channel_bw, [0] * fft_size)
+        self.msod_sensor_bin_aggregator_0 = msod_sensor.bin_aggregator(fft_size, num_ch, samp_rate, fft_size, center_freq, ActualBW, channel_bw, [0] * fft_size, False)
         self.fft_vxx_0 = fft.fft_vcc(fft_size, True, (mywindow), True, 1)
         self.blocks_stream_to_vector_0 = blocks.stream_to_vector(gr.sizeof_gr_complex*1, fft_size)
         self.blocks_nlog10_ff_0 = blocks.nlog10_ff(10, num_ch, 30.0 + Vsq2W_dB)
@@ -220,6 +200,7 @@ class MSOD_SSLSensor_HackRF(gr.top_block, Qt.QWidget):
         ##################################################
         # Connections
         ##################################################
+        self.connect((self.blocks_complex_to_mag_squared_0, 0), (self.msod_sensor_bin_aggregator_0, 0))    
         self.connect((self.blocks_float_to_char_0, 0), (self.msod_sensor_sslsocket_sink_0, 0))    
         self.connect((self.blocks_nlog10_ff_0, 0), (self.blocks_float_to_char_0, 0))    
         self.connect((self.blocks_stream_to_vector_0, 0), (self.fft_vxx_0, 0))    
@@ -227,20 +208,20 @@ class MSOD_SSLSensor_HackRF(gr.top_block, Qt.QWidget):
         self.connect((self.msod_sensor_bin_aggregator_0, 0), (self.msod_sensor_bin_statistics_0, 0))    
         self.connect((self.msod_sensor_bin_statistics_0, 0), (self.blocks_nlog10_ff_0, 0))    
         self.connect((self.osmosdr_source_0, 0), (self.blocks_stream_to_vector_0, 0))    
-        self.connect((self.blocks_complex_to_mag_squared_0, 0), (self.msod_sensor_bin_aggregator_0, 0))    
 
     def closeEvent(self, event):
         self.settings = Qt.QSettings("GNU Radio", "MSOD_SSLSensor_HackRF")
         self.settings.setValue("geometry", self.saveGeometry())
         event.accept()
 
+
     def get_samp_rate(self):
         return self.samp_rate
 
     def set_samp_rate(self, samp_rate):
         self.samp_rate = samp_rate
-        self.set_meas_period(max(1, int(round(self.meas_interval * self.samp_rate / self.fft_size))))
         self.set_hz_per_bin(self.samp_rate / self.fft_size)
+        self.set_meas_period(max(1, int(round(self.meas_interval * self.samp_rate / self.fft_size))))
         self._samp_rate_callback(self.samp_rate)
         self.osmosdr_source_0.set_sample_rate(self.samp_rate)
 
@@ -249,19 +230,19 @@ class MSOD_SSLSensor_HackRF(gr.top_block, Qt.QWidget):
 
     def set_fft_size(self, fft_size):
         self.fft_size = fft_size
-        self.set_mywindow(window.blackmanharris(self.fft_size))
-        self.set_meas_period(max(1, int(round(self.meas_interval * self.samp_rate / self.fft_size))))
-        self.set_hz_per_bin(self.samp_rate / self.fft_size)
         self.set_Vsq2W_dB(-10.0 * math.log10(self.fft_size * int(self.window_power) * self.impedance))
         self._fft_size_callback(self.fft_size)
+        self.set_hz_per_bin(self.samp_rate / self.fft_size)
+        self.set_meas_period(max(1, int(round(self.meas_interval * self.samp_rate / self.fft_size))))
+        self.set_mywindow(window.blackmanharris(self.fft_size))
 
     def get_num_ch(self):
         return self.num_ch
 
     def set_num_ch(self, num_ch):
         self.num_ch = num_ch
-        self.set_channel_bw(self.hz_per_bin * round(self.bandwidth / self.num_ch / self.hz_per_bin))
         self.set_ActualBW(self.channel_bw * self.num_ch)
+        self.set_channel_bw(self.hz_per_bin * round(self.bandwidth / self.num_ch / self.hz_per_bin))
         self._num_ch_callback(self.num_ch)
 
     def get_mywindow(self):
@@ -283,8 +264,8 @@ class MSOD_SSLSensor_HackRF(gr.top_block, Qt.QWidget):
 
     def set_bandwidth(self, bandwidth):
         self.bandwidth = bandwidth
-        self.set_channel_bw(self.hz_per_bin * round(self.bandwidth / self.num_ch / self.hz_per_bin))
         self._bandwidth_callback(self.bandwidth)
+        self.set_channel_bw(self.hz_per_bin * round(self.bandwidth / self.num_ch / self.hz_per_bin))
 
     def get_window_power(self):
         return self.window_power
@@ -319,8 +300,6 @@ class MSOD_SSLSensor_HackRF(gr.top_block, Qt.QWidget):
 
     def set_rx_gain(self, rx_gain):
         self.rx_gain = rx_gain
-        Qt.QMetaObject.invokeMethod(self._rx_gain_counter, "setValue", Qt.Q_ARG("double", self.rx_gain))
-        Qt.QMetaObject.invokeMethod(self._rx_gain_slider, "setValue", Qt.Q_ARG("double", self.rx_gain))
 
     def get_meas_period(self):
         return self.meas_period
@@ -341,6 +320,7 @@ class MSOD_SSLSensor_HackRF(gr.top_block, Qt.QWidget):
     def set_center_freq(self, center_freq):
         self.center_freq = center_freq
         self._center_freq_callback(self.center_freq)
+        self.osmosdr_source_0.set_center_freq(self.center_freq, 0)
 
     def get_Vsq2W_dB(self):
         return self.Vsq2W_dB
@@ -355,18 +335,24 @@ class MSOD_SSLSensor_HackRF(gr.top_block, Qt.QWidget):
         self.ActualBW = ActualBW
 
 
-if __name__ == '__main__':
-    parser = OptionParser(option_class=eng_option, usage="%prog: [options]")
-    (options, args) = parser.parse_args()
-    if(StrictVersion(Qt.qVersion()) >= StrictVersion("4.5.0")):
-        Qt.QApplication.setGraphicsSystem(gr.prefs().get_string('qtgui','style','raster'))
+def main(top_block_cls=MSOD_SSLSensor_HackRF, options=None):
+
+    from distutils.version import StrictVersion
+    if StrictVersion(Qt.qVersion()) >= StrictVersion("4.5.0"):
+        style = gr.prefs().get_string('qtgui', 'style', 'raster')
+        Qt.QApplication.setGraphicsSystem(style)
     qapp = Qt.QApplication(sys.argv)
-    tb = MSOD_SSLSensor_HackRF()
+
+    tb = top_block_cls()
     tb.start()
     tb.show()
+
     def quitting():
         tb.stop()
         tb.wait()
     qapp.connect(qapp, Qt.SIGNAL("aboutToQuit()"), quitting)
     qapp.exec_()
-    tb = None #to clean up Qt widgets
+
+
+if __name__ == '__main__':
+    main()

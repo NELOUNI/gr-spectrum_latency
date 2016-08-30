@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<?grc format='1' created='3.7.8'?>
+<?grc format='1' created='3.7.9'?>
 <flow_graph>
   <timestamp>Tue Sep  1 14:27:23 2015</timestamp>
   <block>
@@ -9,8 +9,8 @@
       <value></value>
     </param>
     <param>
-      <key>alias</key>
-      <value></value>
+      <key>window_size</key>
+      <value>1280, 1024</value>
     </param>
     <param>
       <key>category</key>
@@ -49,8 +49,16 @@
       <value>0</value>
     </param>
     <param>
+      <key>qt_qss_theme</key>
+      <value></value>
+    </param>
+    <param>
       <key>realtime_scheduling</key>
       <value></value>
+    </param>
+    <param>
+      <key>run_command</key>
+      <value>{python} -u {filename}</value>
     </param>
     <param>
       <key>run_options</key>
@@ -68,10 +76,6 @@
       <key>title</key>
       <value></value>
     </param>
-    <param>
-      <key>window_size</key>
-      <value>1280, 1024</value>
-    </param>
   </block>
   <block>
     <key>variable</key>
@@ -85,7 +89,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(424, 67)</value>
+      <value>(432, 69)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -112,7 +116,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(280, 259)</value>
+      <value>(432, 245)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -135,7 +139,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>10.08e6</value>
+      <value>9e6</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -143,7 +147,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(280, 3)</value>
+      <value>(304, 9)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -242,7 +246,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(8, 75)</value>
+      <value>(16, 69)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -270,7 +274,7 @@
     </param>
     <param>
       <key>label3</key>
-      <value>LTE-3</value>
+      <value>HackRF Shifted Freq</value>
     </param>
     <param>
       <key>label4</key>
@@ -286,7 +290,7 @@
     </param>
     <param>
       <key>num_opts</key>
-      <value>3</value>
+      <value>4</value>
     </param>
     <param>
       <key>option0</key>
@@ -302,7 +306,7 @@
     </param>
     <param>
       <key>option3</key>
-      <value>7.68e6</value>
+      <value>729e6</value>
     </param>
     <param>
       <key>option4</key>
@@ -337,7 +341,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(416, 3)</value>
+      <value>(432, 5)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -360,7 +364,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>"129.6.142.138"</value>
+      <value>"pwct5.ctl.nist.gov"</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -424,11 +428,11 @@
     </param>
     <param>
       <key>option2</key>
-      <value>"129.6.142.181"</value>
+      <value>"pwc8.ctl.nist.gov"</value>
     </param>
     <param>
       <key>option3</key>
-      <value>"129.6.142.138"</value>
+      <value>"pwct5.ctl.nist.gov"</value>
     </param>
     <param>
       <key>option4</key>
@@ -459,7 +463,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>625</value>
+      <value>1000</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -483,7 +487,7 @@
     </param>
     <param>
       <key>label0</key>
-      <value>625</value>
+      <value>1000</value>
     </param>
     <param>
       <key>label1</key>
@@ -515,7 +519,7 @@
     </param>
     <param>
       <key>option0</key>
-      <value>625</value>
+      <value>1000</value>
     </param>
     <param>
       <key>option1</key>
@@ -562,7 +566,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(520, 3)</value>
+      <value>(536, 5)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -589,7 +593,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(176, 259)</value>
+      <value>(328, 245)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -670,7 +674,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(512, 259)</value>
+      <value>(648, 245)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -693,7 +697,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>56</value>
+      <value>50</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -701,7 +705,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(168, 3)</value>
+      <value>(184, 9)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -800,7 +804,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(424, 131)</value>
+      <value>(424, 129)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -855,7 +859,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>12.5e6</value>
+      <value>10e6</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -879,7 +883,7 @@
     </param>
     <param>
       <key>label0</key>
-      <value>12.5e6</value>
+      <value>10e6</value>
     </param>
     <param>
       <key>label1</key>
@@ -911,7 +915,7 @@
     </param>
     <param>
       <key>option0</key>
-      <value>12.5e6</value>
+      <value>10e6</value>
     </param>
     <param>
       <key>option1</key>
@@ -958,7 +962,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(392, 259)</value>
+      <value>(536, 245)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -993,7 +997,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(768, 363)</value>
+      <value>(736, 356)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1134,7 +1138,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(296, 363)</value>
+      <value>(304, 356)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1244,7 +1248,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(536, 203)</value>
+      <value>(544, 196)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1261,6 +1265,10 @@
   </block>
   <block>
     <key>msod_sensor_bin_aggregator</key>
+    <param>
+      <key>avoid_LO</key>
+      <value>False</value>
+    </param>
     <param>
       <key>bandwidth</key>
       <value>ActualBW</value>
@@ -1295,7 +1303,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(224, 435)</value>
+      <value>(232, 436)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1384,6 +1392,10 @@
       <value>0</value>
     </param>
     <param>
+      <key>avoid_LO</key>
+      <value>False</value>
+    </param>
+    <param>
       <key>bandwidth</key>
       <value>ActualBW</value>
     </param>
@@ -1432,8 +1444,12 @@
       <value>num_ch</value>
     </param>
     <param>
+      <key>samp_rate</key>
+      <value>samp_rate</value>
+    </param>
+    <param>
       <key>sensor_id</key>
-      <value>"E6R16W5XS"</value>
+      <value>"HackRF"</value>
     </param>
     <param>
       <key>sensor_key</key>
@@ -1441,11 +1457,11 @@
     </param>
     <param>
       <key>sensorLoc</key>
-      <value>"/home/naceur/Documents/spectrum_monitor_sensors/gr-msod_sensor/examples/utils/sensor.loc"</value>
+      <value>"/raid/nae/pybombs/src/gr-msod_latency/examples/sensor_HackRF.loc"</value>
     </param>
     <param>
       <key>sensorSys</key>
-      <value>"/home/naceur/Documents/spectrum_monitor_sensors/gr-msod_sensor/examples/utils/sensor.sys"</value>
+      <value>"/raid/nae/pybombs/src/gr-msod_latency/examples/sensor_HackRF.sys"</value>
     </param>
   </block>
   <block>
@@ -1460,15 +1476,15 @@
     </param>
     <param>
       <key>bb_gain0</key>
-      <value>20</value>
+      <value>40</value>
     </param>
     <param>
       <key>bw0</key>
-      <value>0</value>
+      <value>20e6</value>
     </param>
     <param>
       <key>dc_offset_mode0</key>
-      <value>0</value>
+      <value>1</value>
     </param>
     <param>
       <key>corr0</key>
@@ -1476,23 +1492,23 @@
     </param>
     <param>
       <key>freq0</key>
-      <value>100e6</value>
+      <value>center_freq</value>
     </param>
     <param>
       <key>gain_mode0</key>
-      <value>False</value>
+      <value>True</value>
     </param>
     <param>
       <key>if_gain0</key>
-      <value>20</value>
+      <value>32</value>
     </param>
     <param>
       <key>iq_balance_mode0</key>
-      <value>0</value>
+      <value>2</value>
     </param>
     <param>
       <key>gain0</key>
-      <value>10</value>
+      <value>0</value>
     </param>
     <param>
       <key>ant10</key>
@@ -2744,7 +2760,7 @@
     </param>
     <param>
       <key>args</key>
-      <value></value>
+      <value>hackrf=0</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -2752,7 +2768,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(8, 299)</value>
+      <value>(24, 286)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -2867,7 +2883,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(960, 363)</value>
+      <value>(928, 356)</value>
     </param>
     <param>
       <key>_rotation</key>

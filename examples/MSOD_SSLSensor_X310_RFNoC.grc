@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<?grc format='1' created='3.7.8'?>
+<?grc format='1' created='3.7.10'?>
 <flow_graph>
   <timestamp>Tue Sep  1 14:27:23 2015</timestamp>
   <block>
@@ -9,8 +9,8 @@
       <value></value>
     </param>
     <param>
-      <key>alias</key>
-      <value></value>
+      <key>window_size</key>
+      <value>1280, 1024</value>
     </param>
     <param>
       <key>category</key>
@@ -41,6 +41,10 @@
       <value>qt_gui</value>
     </param>
     <param>
+      <key>hier_block_src_path</key>
+      <value>.:</value>
+    </param>
+    <param>
       <key>id</key>
       <value>MSOD_SSLSensor_X310_RFNoC</value>
     </param>
@@ -49,8 +53,16 @@
       <value>0</value>
     </param>
     <param>
+      <key>qt_qss_theme</key>
+      <value></value>
+    </param>
+    <param>
       <key>realtime_scheduling</key>
       <value></value>
+    </param>
+    <param>
+      <key>run_command</key>
+      <value>{python} -u {filename}</value>
     </param>
     <param>
       <key>run_options</key>
@@ -68,10 +80,6 @@
       <key>title</key>
       <value></value>
     </param>
-    <param>
-      <key>window_size</key>
-      <value>1280, 1024</value>
-    </param>
   </block>
   <block>
     <key>variable</key>
@@ -85,7 +93,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(424, 67)</value>
+      <value>(464, 69)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -108,11 +116,11 @@
     </param>
     <param>
       <key>_enabled</key>
-      <value>1</value>
+      <value>0</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(280, 259)</value>
+      <value>(336, 261)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -135,7 +143,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>10.08e6</value>
+      <value>9e6</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -143,7 +151,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(280, 3)</value>
+      <value>(344, 9)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -242,7 +250,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(8, 75)</value>
+      <value>(40, 69)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -337,7 +345,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(416, 3)</value>
+      <value>(472, 5)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -368,7 +376,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(904, 11)</value>
+      <value>(944, 15)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -459,7 +467,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>625</value>
+      <value>256</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -467,7 +475,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(640, 3)</value>
+      <value>(680, 9)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -483,7 +491,7 @@
     </param>
     <param>
       <key>label0</key>
-      <value>625</value>
+      <value>2048</value>
     </param>
     <param>
       <key>label1</key>
@@ -515,7 +523,7 @@
     </param>
     <param>
       <key>option0</key>
-      <value>625</value>
+      <value>2048</value>
     </param>
     <param>
       <key>option1</key>
@@ -562,7 +570,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(520, 3)</value>
+      <value>(568, 5)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -589,7 +597,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(176, 259)</value>
+      <value>(232, 261)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -616,7 +624,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(528, 67)</value>
+      <value>(576, 69)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -643,7 +651,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(536, 131)</value>
+      <value>(576, 133)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -666,11 +674,11 @@
     </param>
     <param>
       <key>_enabled</key>
-      <value>True</value>
+      <value>0</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(512, 259)</value>
+      <value>(704, 253)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -693,7 +701,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>56</value>
+      <value>50</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -701,7 +709,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(168, 3)</value>
+      <value>(216, 9)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -800,7 +808,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(424, 131)</value>
+      <value>(464, 129)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -855,7 +863,7 @@
     </param>
     <param>
       <key>value</key>
-      <value>12.5e6</value>
+      <value>10e6</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -863,7 +871,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(768, 3)</value>
+      <value>(808, 9)</value>
     </param>
     <param>
       <key>gui_hint</key>
@@ -879,15 +887,15 @@
     </param>
     <param>
       <key>label0</key>
-      <value>12.5e6</value>
+      <value>10e6</value>
     </param>
     <param>
       <key>label1</key>
-      <value>15.36e6</value>
+      <value>25e6</value>
     </param>
     <param>
       <key>label2</key>
-      <value>7.68e6</value>
+      <value>12.5e6</value>
     </param>
     <param>
       <key>label3</key>
@@ -895,7 +903,7 @@
     </param>
     <param>
       <key>label4</key>
-      <value>1.92e6</value>
+      <value>5e5</value>
     </param>
     <param>
       <key>label</key>
@@ -911,15 +919,15 @@
     </param>
     <param>
       <key>option0</key>
-      <value>12.5e6</value>
+      <value>10e6</value>
     </param>
     <param>
       <key>option1</key>
-      <value>15.36e6</value>
+      <value>25e6</value>
     </param>
     <param>
       <key>option2</key>
-      <value>7.68e6</value>
+      <value>12.5e6</value>
     </param>
     <param>
       <key>option3</key>
@@ -927,7 +935,7 @@
     </param>
     <param>
       <key>option4</key>
-      <value>1.92e6</value>
+      <value>5e5</value>
     </param>
     <param>
       <key>options</key>
@@ -947,10 +955,18 @@
     </param>
   </block>
   <block>
-    <key>variable</key>
+    <key>variable_uhd_device3</key>
     <param>
       <key>comment</key>
       <value></value>
+    </param>
+    <param>
+      <key>dev_addr</key>
+      <value>type=x300</value>
+    </param>
+    <param>
+      <key>dev_args</key>
+      <value>"addr=usrp0"</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -958,7 +974,30 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(392, 259)</value>
+      <value>(40, 246)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>variable_uhd_device3_0</value>
+    </param>
+  </block>
+  <block>
+    <key>variable</key>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(504, 253)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -974,7 +1013,7 @@
     </param>
   </block>
   <block>
-    <key>blocks_complex_to_mag_squared</key>
+    <key>blocks_complex_to_mag</key>
     <param>
       <key>alias</key>
       <value></value>
@@ -989,11 +1028,11 @@
     </param>
     <param>
       <key>_enabled</key>
-      <value>True</value>
+      <value>1</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(768, 363)</value>
+      <value>(616, 572)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1001,7 +1040,7 @@
     </param>
     <param>
       <key>id</key>
-      <value>blocks_complex_to_mag_squared_0</value>
+      <value>blocks_complex_to_mag_0</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -1013,7 +1052,7 @@
     </param>
     <param>
       <key>vlen</key>
-      <value>fft_size</value>
+      <value>num_ch</value>
     </param>
   </block>
   <block>
@@ -1036,7 +1075,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(728, 483)</value>
+      <value>(944, 565)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1064,108 +1103,6 @@
     </param>
   </block>
   <block>
-    <key>blocks_nlog10_ff</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(584, 475)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>blocks_nlog10_ff_0</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>vlen</key>
-      <value>num_ch</value>
-    </param>
-    <param>
-      <key>k</key>
-      <value>30.0 + Vsq2W_dB</value>
-    </param>
-    <param>
-      <key>n</key>
-      <value>10</value>
-    </param>
-  </block>
-  <block>
-    <key>blocks_stream_to_vector</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(296, 363)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>blocks_stream_to_vector_0</value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>complex</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>num_items</key>
-      <value>fft_size</value>
-    </param>
-    <param>
-      <key>vlen</key>
-      <value>1</value>
-    </param>
-  </block>
-  <block>
     <key>fft_vxx</key>
     <param>
       <key>alias</key>
@@ -1181,7 +1118,7 @@
     </param>
     <param>
       <key>_enabled</key>
-      <value>1</value>
+      <value>0</value>
     </param>
     <param>
       <key>fft_size</key>
@@ -1193,7 +1130,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(496, 331)</value>
+      <value>(512, 456)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1244,7 +1181,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(536, 203)</value>
+      <value>(584, 196)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1257,77 +1194,6 @@
     <param>
       <key>import</key>
       <value>import math</value>
-    </param>
-  </block>
-  <block>
-    <key>msod_sensor_bin_aggregator</key>
-    <param>
-      <key>bandwidth</key>
-      <value>ActualBW</value>
-    </param>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>center_freq</key>
-      <value>center_freq</value>
-    </param>
-    <param>
-      <key>channel_bw</key>
-      <value>channel_bw</value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>fft_size</key>
-      <value>fft_size</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(224, 435)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>msod_sensor_bin_aggregator_0</value>
-    </param>
-    <param>
-      <key>input_vlen</key>
-      <value>fft_size</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>output_vlen</key>
-      <value>num_ch</value>
-    </param>
-    <param>
-      <key>samp_rate</key>
-      <value>samp_rate</value>
-    </param>
-    <param>
-      <key>output_bin_index</key>
-      <value>[0] * fft_size</value>
     </param>
   </block>
   <block>
@@ -1346,11 +1212,11 @@
     </param>
     <param>
       <key>_enabled</key>
-      <value>True</value>
+      <value>0</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(440, 483)</value>
+      <value>(800, 565)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1378,10 +1244,93 @@
     </param>
   </block>
   <block>
+    <key>msod_sensor_jsonfile_sink</key>
+    <param>
+      <key>atten</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>avoid_LO</key>
+      <value>False</value>
+    </param>
+    <param>
+      <key>bandwidth</key>
+      <value>ActualBW</value>
+    </param>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>center_freq</key>
+      <value>center_freq</value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>filename</key>
+      <value>"/home/nae/capture/capture_X310/03_25_2016-002.dat"</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(1112, 711)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>msod_sensor_jsonfile_sink_0</value>
+    </param>
+    <param>
+      <key>meas_duration</key>
+      <value>meas_interval</value>
+    </param>
+    <param>
+      <key>num_ch</key>
+      <value>num_ch</value>
+    </param>
+    <param>
+      <key>samp_rate</key>
+      <value>samp_rate</value>
+    </param>
+    <param>
+      <key>sensor_id</key>
+      <value>"X310"</value>
+    </param>
+    <param>
+      <key>sensor_key</key>
+      <value>"NaN"</value>
+    </param>
+    <param>
+      <key>sensorLoc</key>
+      <value>"/raid/nae/pybombs_RFNoC/src/gr-msod_latency/examples/sensor_X310.loc"</value>
+    </param>
+    <param>
+      <key>sensorSys</key>
+      <value>"/raid/nae/pybombs_RFNoC/src/gr-msod_latency/examples/sensor_X310.sys"</value>
+    </param>
+  </block>
+  <block>
     <key>msod_sensor_sslsocket_sink</key>
     <param>
       <key>atten</key>
       <value>0</value>
+    </param>
+    <param>
+      <key>avoid_LO</key>
+      <value>False</value>
     </param>
     <param>
       <key>bandwidth</key>
@@ -1409,11 +1358,11 @@
     </param>
     <param>
       <key>_enabled</key>
-      <value>True</value>
+      <value>0</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(912, 419)</value>
+      <value>(1112, 503)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1432,8 +1381,12 @@
       <value>num_ch</value>
     </param>
     <param>
+      <key>samp_rate</key>
+      <value>samp_rate</value>
+    </param>
+    <param>
       <key>sensor_id</key>
-      <value>"E6R16W5XS"</value>
+      <value>"X310"</value>
     </param>
     <param>
       <key>sensor_key</key>
@@ -1441,662 +1394,34 @@
     </param>
     <param>
       <key>sensorLoc</key>
-      <value>"/home/naceur/Documents/spectrum_monitor_sensors/gr-msod_sensor/examples/utils/sensor.loc"</value>
+      <value>"/raid/nae/pybombs/src/gr-msod_latency/examples/sensor_X310.loc"</value>
     </param>
     <param>
       <key>sensorSys</key>
-      <value>"/home/naceur/Documents/spectrum_monitor_sensors/gr-msod_sensor/examples/utils/sensor.sys"</value>
+      <value>"/raid/nae/pybombs/src/gr-msod_latency/examples/sensor_X310.sys"</value>
     </param>
   </block>
   <block>
-    <key>uhd_usrp_source</key>
+    <key>uhd_rfnoc_streamer_bin_aggr</key>
+    <param>
+      <key>bandwidth</key>
+      <value>int(bandwidth)</value>
+    </param>
     <param>
       <key>alias</key>
       <value></value>
     </param>
     <param>
-      <key>ant0</key>
-      <value>TX/RX</value>
+      <key>block_index</key>
+      <value>-1</value>
     </param>
     <param>
-      <key>bw0</key>
-      <value>0</value>
+      <key>center_freq</key>
+      <value>int(center_freq)</value>
     </param>
     <param>
-      <key>center_freq0</key>
-      <value>center_freq</value>
-    </param>
-    <param>
-      <key>norm_gain0</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>gain0</key>
-      <value>rx_gain</value>
-    </param>
-    <param>
-      <key>ant10</key>
-      <value></value>
-    </param>
-    <param>
-      <key>bw10</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>center_freq10</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>norm_gain10</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>gain10</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>ant11</key>
-      <value></value>
-    </param>
-    <param>
-      <key>bw11</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>center_freq11</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>norm_gain11</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>gain11</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>ant12</key>
-      <value></value>
-    </param>
-    <param>
-      <key>bw12</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>center_freq12</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>norm_gain12</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>gain12</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>ant13</key>
-      <value></value>
-    </param>
-    <param>
-      <key>bw13</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>center_freq13</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>norm_gain13</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>gain13</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>ant14</key>
-      <value></value>
-    </param>
-    <param>
-      <key>bw14</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>center_freq14</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>norm_gain14</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>gain14</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>ant15</key>
-      <value></value>
-    </param>
-    <param>
-      <key>bw15</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>center_freq15</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>norm_gain15</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>gain15</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>ant16</key>
-      <value></value>
-    </param>
-    <param>
-      <key>bw16</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>center_freq16</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>norm_gain16</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>gain16</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>ant17</key>
-      <value></value>
-    </param>
-    <param>
-      <key>bw17</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>center_freq17</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>norm_gain17</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>gain17</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>ant18</key>
-      <value></value>
-    </param>
-    <param>
-      <key>bw18</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>center_freq18</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>norm_gain18</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>gain18</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>ant19</key>
-      <value></value>
-    </param>
-    <param>
-      <key>bw19</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>center_freq19</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>norm_gain19</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>gain19</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>ant1</key>
-      <value></value>
-    </param>
-    <param>
-      <key>bw1</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>center_freq1</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>norm_gain1</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>gain1</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>ant20</key>
-      <value></value>
-    </param>
-    <param>
-      <key>bw20</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>center_freq20</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>norm_gain20</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>gain20</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>ant21</key>
-      <value></value>
-    </param>
-    <param>
-      <key>bw21</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>center_freq21</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>norm_gain21</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>gain21</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>ant22</key>
-      <value></value>
-    </param>
-    <param>
-      <key>bw22</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>center_freq22</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>norm_gain22</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>gain22</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>ant23</key>
-      <value></value>
-    </param>
-    <param>
-      <key>bw23</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>center_freq23</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>norm_gain23</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>gain23</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>ant24</key>
-      <value></value>
-    </param>
-    <param>
-      <key>bw24</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>center_freq24</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>norm_gain24</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>gain24</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>ant25</key>
-      <value></value>
-    </param>
-    <param>
-      <key>bw25</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>center_freq25</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>norm_gain25</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>gain25</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>ant26</key>
-      <value></value>
-    </param>
-    <param>
-      <key>bw26</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>center_freq26</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>norm_gain26</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>gain26</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>ant27</key>
-      <value></value>
-    </param>
-    <param>
-      <key>bw27</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>center_freq27</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>norm_gain27</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>gain27</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>ant28</key>
-      <value></value>
-    </param>
-    <param>
-      <key>bw28</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>center_freq28</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>norm_gain28</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>gain28</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>ant29</key>
-      <value></value>
-    </param>
-    <param>
-      <key>bw29</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>center_freq29</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>norm_gain29</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>gain29</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>ant2</key>
-      <value></value>
-    </param>
-    <param>
-      <key>bw2</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>center_freq2</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>norm_gain2</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>gain2</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>ant30</key>
-      <value></value>
-    </param>
-    <param>
-      <key>bw30</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>center_freq30</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>norm_gain30</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>gain30</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>ant31</key>
-      <value></value>
-    </param>
-    <param>
-      <key>bw31</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>center_freq31</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>norm_gain31</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>gain31</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>ant3</key>
-      <value></value>
-    </param>
-    <param>
-      <key>bw3</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>center_freq3</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>norm_gain3</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>gain3</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>ant4</key>
-      <value></value>
-    </param>
-    <param>
-      <key>bw4</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>center_freq4</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>norm_gain4</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>gain4</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>ant5</key>
-      <value></value>
-    </param>
-    <param>
-      <key>bw5</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>center_freq5</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>norm_gain5</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>gain5</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>ant6</key>
-      <value></value>
-    </param>
-    <param>
-      <key>bw6</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>center_freq6</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>norm_gain6</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>gain6</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>ant7</key>
-      <value></value>
-    </param>
-    <param>
-      <key>bw7</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>center_freq7</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>norm_gain7</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>gain7</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>ant8</key>
-      <value></value>
-    </param>
-    <param>
-      <key>bw8</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>center_freq8</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>norm_gain8</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>gain8</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>ant9</key>
-      <value></value>
-    </param>
-    <param>
-      <key>bw9</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>center_freq9</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>norm_gain9</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>gain9</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>clock_rate</key>
-      <value>0.0</value>
+      <key>channel_bw</key>
+      <value>int(channel_bw)</value>
     </param>
     <param>
       <key>comment</key>
@@ -2107,20 +1432,20 @@
       <value></value>
     </param>
     <param>
-      <key>dev_addr</key>
-      <value>addr=172.16.20.2</value>
-    </param>
-    <param>
-      <key>dev_args</key>
-      <value>""</value>
+      <key>device_index</key>
+      <value>-1</value>
     </param>
     <param>
       <key>_enabled</key>
-      <value>1</value>
+      <value>True</value>
+    </param>
+    <param>
+      <key>fft_size</key>
+      <value>256</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(40, 331)</value>
+      <value>(200, 537)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -2128,143 +1453,440 @@
     </param>
     <param>
       <key>id</key>
-      <value>uhd_usrp_source_0</value>
+      <value>uhd_rfnoc_streamer_bin_aggr_0</value>
     </param>
     <param>
       <key>maxoutbuf</key>
       <value>0</value>
     </param>
     <param>
-      <key>clock_source0</key>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>output_vlen</key>
+      <value>int(num_ch)</value>
+    </param>
+    <param>
+      <key>samp_rate</key>
+      <value>int(samp_rate)</value>
+    </param>
+  </block>
+  <block>
+    <key>uhd_rfnoc_streamer_fft</key>
+    <param>
+      <key>alias</key>
       <value></value>
     </param>
     <param>
-      <key>sd_spec0</key>
+      <key>comment</key>
       <value></value>
     </param>
     <param>
-      <key>time_source0</key>
+      <key>affinity</key>
       <value></value>
     </param>
     <param>
-      <key>clock_source1</key>
-      <value></value>
+      <key>device_index</key>
+      <value>-1</value>
     </param>
     <param>
-      <key>sd_spec1</key>
-      <value></value>
+      <key>_enabled</key>
+      <value>True</value>
     </param>
     <param>
-      <key>time_source1</key>
-      <value></value>
+      <key>magnitude_out</key>
+      <value>"COMPLEX"</value>
     </param>
     <param>
-      <key>clock_source2</key>
-      <value></value>
+      <key>block_index</key>
+      <value>-1</value>
     </param>
     <param>
-      <key>sd_spec2</key>
-      <value></value>
+      <key>fft_size</key>
+      <value>256</value>
     </param>
     <param>
-      <key>time_source2</key>
-      <value></value>
+      <key>_coordinate</key>
+      <value>(736, 373)</value>
     </param>
     <param>
-      <key>clock_source3</key>
-      <value></value>
+      <key>_rotation</key>
+      <value>0</value>
     </param>
     <param>
-      <key>sd_spec3</key>
-      <value></value>
+      <key>id</key>
+      <value>uhd_rfnoc_streamer_fft_0</value>
     </param>
     <param>
-      <key>time_source3</key>
-      <value></value>
-    </param>
-    <param>
-      <key>clock_source4</key>
-      <value></value>
-    </param>
-    <param>
-      <key>sd_spec4</key>
-      <value></value>
-    </param>
-    <param>
-      <key>time_source4</key>
-      <value></value>
-    </param>
-    <param>
-      <key>clock_source5</key>
-      <value></value>
-    </param>
-    <param>
-      <key>sd_spec5</key>
-      <value></value>
-    </param>
-    <param>
-      <key>time_source5</key>
-      <value></value>
-    </param>
-    <param>
-      <key>clock_source6</key>
-      <value></value>
-    </param>
-    <param>
-      <key>sd_spec6</key>
-      <value></value>
-    </param>
-    <param>
-      <key>time_source6</key>
-      <value></value>
-    </param>
-    <param>
-      <key>clock_source7</key>
-      <value></value>
-    </param>
-    <param>
-      <key>sd_spec7</key>
-      <value></value>
-    </param>
-    <param>
-      <key>time_source7</key>
-      <value></value>
+      <key>maxoutbuf</key>
+      <value>0</value>
     </param>
     <param>
       <key>minoutbuf</key>
       <value>0</value>
     </param>
+  </block>
+  <block>
+    <key>uhd_rfnoc_streamer_fifo</key>
     <param>
-      <key>nchan</key>
-      <value>1</value>
+      <key>alias</key>
+      <value></value>
     </param>
     <param>
-      <key>num_mboards</key>
-      <value>1</value>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>otw</key>
+      <value>sc16</value>
+    </param>
+    <param>
+      <key>device_index</key>
+      <value>-1</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>block_index</key>
+      <value>-1</value>
+    </param>
+    <param>
+      <key>grvlen</key>
+      <value>fft_size</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(272, 373)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
     </param>
     <param>
       <key>type</key>
       <value>fc32</value>
     </param>
     <param>
-      <key>samp_rate</key>
+      <key>id</key>
+      <value>uhd_rfnoc_streamer_fifo_0</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>uhd_rfnoc_streamer_logpwr</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>device_index</key>
+      <value>-1</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>grvlen</key>
+      <value>num_ch</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(424, 572)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>fc32</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>uhd_rfnoc_streamer_logpwr_0</value>
+    </param>
+    <param>
+      <key>block_index</key>
+      <value>-1</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+  </block>
+  <block>
+    <key>uhd_rfnoc_streamer_radio</key>
+    <param>
+      <key>ant</key>
+      <value>"TX/RX"</value>
+    </param>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>freq</key>
+      <value>center_freq</value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>dcenable</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>otw_format</key>
+      <value>sc16</value>
+    </param>
+    <param>
+      <key>device_index</key>
+      <value>-1</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>grvlen</key>
+      <value>fft_size</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(40, 324)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>gain</key>
+      <value>rx_gain</value>
+    </param>
+    <param>
+      <key>cpu_format</key>
+      <value>fc32</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>uhd_rfnoc_streamer_radio_0</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>direction</key>
+      <value>rx</value>
+    </param>
+    <param>
+      <key>radio_index</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>rate</key>
       <value>samp_rate</value>
     </param>
     <param>
       <key>stream_args</key>
+      <value>spp=256</value>
+    </param>
+  </block>
+  <block>
+    <key>uhd_rfnoc_streamer_vector_iir</key>
+    <param>
+      <key>alpha</key>
+      <value>0.984375</value>
+    </param>
+    <param>
+      <key>beta</key>
+      <value>0.015625</value>
+    </param>
+    <param>
+      <key>alias</key>
       <value></value>
     </param>
     <param>
-      <key>stream_chans</key>
-      <value>[]</value>
-    </param>
-    <param>
-      <key>sync</key>
+      <key>comment</key>
       <value></value>
     </param>
     <param>
-      <key>otw</key>
+      <key>affinity</key>
       <value></value>
+    </param>
+    <param>
+      <key>device_index</key>
+      <value>-1</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(944, 366)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>uhd_rfnoc_streamer_vector_iir_0</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>vlen</key>
+      <value>fft_size</value>
+    </param>
+    <param>
+      <key>block_index</key>
+      <value>-1</value>
+    </param>
+  </block>
+  <block>
+    <key>uhd_rfnoc_streamer_window</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>coeffs</key>
+      <value>[6e-05,6.0534e-05,6.2135e-05,6.4806e-05,6.855e-05,7.3371e-05,7.9273e-05,8.6264e-05,9.4351e-05,0.00010354,0.00011385,0.00012528,0.00013785,0.00015158,0.00016647,0.00018254,0.00019981,0.0002183,0.00023803,0.00025901,0.00028127,0.00030484,0.00032973,0.00035598,0.0003836,0.00041263,0.00044309,0.00047502,0.00050844,0.0005434,0.00057991,0.00061802,0.00065776,0.00069917,0.00074228,0.00078715,0.0008338,0.00088228,0.00093263,0.00098489,0.0010391,0.0010954,0.0011536,0.001214,0.0012766,0.0013413,0.0014083,0.0014777,0.0015493,0.0016234,0.0017,0.0017791,0.0018608,0.0019452,0.0020323,0.0021221,0.0022148,0.0023104,0.002409,0.0025106,0.0026153,0.0027232,0.0028343,0.0029488,0.0030666,0.003188,0.0033128,0.0034413,0.0035735,0.0037094,0.0038492,0.0039929,0.0041407,0.0042925,0.0044485,0.0046088,0.0047734,0.0049425,0.0051161,0.0052943,0.0054773,0.005665,0.0058576,0.0060552,0.0062578,0.0064657,0.0066788,0.0068973,0.0071212,0.0073507,0.0075859,0.0078268,0.0080736,0.0083264,0.0085852,0.0088503,0.0091216,0.0093993,0.0096835,0.0099743,0.010272,0.010576,0.010888,0.011206,0.011532,0.011864,0.012205,0.012552,0.012908,0.013271,0.013642,0.014021,0.014408,0.014803,0.015207,0.015619,0.016039,0.016469,0.016907,0.017354,0.017811,0.018276,0.018751,0.019235,0.019729,0.020233,0.020746,0.02127,0.021803,0.022347,0.022901,0.023466,0.024041,0.024627,0.025224,0.025832,0.026451,0.027081,0.027723,0.028377,0.029042,0.029719,0.030407,0.031108,0.031822,0.032547,0.033285,0.034036,0.034799,0.035576,0.036365,0.037168,0.037984,0.038813,0.039656,0.040513,0.041383,0.042268,0.043166,0.044079,0.045006,0.045948,0.046905,0.047876,0.048862,0.049863,0.05088,0.051911,0.052959,0.054021,0.0551,0.056194,0.057304,0.058431,0.059573,0.060732,0.061908,0.0631,0.064308,0.065534,0.066777,0.068036,0.069313,0.070607,0.071919,0.073248,0.074595,0.07596,0.077343,0.078743,0.080162,0.081599,0.083055,0.084529,0.086021,0.087532,0.089063,0.090611,0.092179,0.093766,0.095373,0.096998,0.098643,0.10031,0.10199,0.1037,0.10542,0.10716,0.10892,0.11071,0.11251,0.11434,0.11618,0.11804,0.11993,0.12183,0.12376,0.12571,0.12767,0.12966,0.13167,0.1337,0.13575,0.13782,0.13991,0.14203,0.14416,0.14632,0.14849,0.15069,0.15291,0.15515,0.15742,0.1597,0.162,0.16433,0.16668,0.16905,0.17144,0.17385,0.17629,0.17874,0.18122,0.18372,0.18624,0.18878,0.19135,0.19393,0.19654,0.19917,0.20182,0.20449,0.20718,0.2099,0.21263,0.21539,0.21817,0.22097,0.22379,0.22663,0.22949,0.23238,0.23528,0.23821,0.24116,0.24413,0.24712,0.25012,0.25316,0.25621,0.25928,0.26237,0.26548,0.26862,0.27177,0.27494,0.27814,0.28135,0.28458,0.28783,0.2911,0.29439,0.2977,0.30103,0.30438,0.30775,0.31113,0.31454,0.31796,0.3214,0.32486,0.32834,0.33183,0.33534,0.33887,0.34242,0.34598,0.34957,0.35316,0.35678,0.36041,0.36406,0.36772,0.3714,0.37509,0.3788,0.38253,0.38627,0.39002,0.39379,0.39758,0.40137,0.40518,0.40901,0.41285,0.4167,0.42056,0.42444,0.42833,0.43223,0.43614,0.44007,0.444,0.44795,0.45191,0.45588,0.45986,0.46385,0.46785,0.47185,0.47587,0.4799,0.48393,0.48797,0.49202,0.49608,0.50015,0.50422,0.5083,0.51239,0.51648,0.52058,0.52468,0.52879,0.5329,0.53702,0.54114,0.54526,0.54939,0.55352,0.55766,0.56179,0.56593,0.57007,0.57421,0.57836,0.5825,0.58664,0.59079,0.59493,0.59907,0.60321,0.60735,0.61149,0.61562,0.61976,0.62389,0.62801,0.63214,0.63625,0.64037,0.64448,0.64858,0.65268,0.65677,0.66085,0.66493,0.669,0.67307,0.67712,0.68117,0.68521,0.68924,0.69326,0.69727,0.70127,0.70525,0.70923,0.7132,0.71715,0.72109,0.72502,0.72894,0.73284,0.73673,0.7406,0.74446,0.7483,0.75213,0.75594,0.75974,0.76352,0.76728,0.77103,0.77475,0.77846,0.78215,0.78583,0.78948,0.79311,0.79672,0.80031,0.80388,0.80743,0.81096,0.81446,0.81795,0.82141,0.82484,0.82826,0.83165,0.83501,0.83835,0.84167,0.84496,0.84822,0.85146,0.85467,0.85785,0.86101,0.86414,0.86724,0.87031,0.87336,0.87637,0.87936,0.88231,0.88524,0.88814,0.891,0.89384,0.89664,0.89941,0.90215,0.90486,0.90754,0.91018,0.91279,0.91536,0.91791,0.92041,0.92289,0.92533,0.92773,0.9301,0.93243,0.93473,0.93699,0.93922,0.94141,0.94356,0.94568,0.94775,0.94979,0.9518,0.95376,0.95569,0.95758,0.95943,0.96124,0.96301,0.96474,0.96643,0.96809,0.9697,0.97127,0.97281,0.9743,0.97575,0.97716,0.97853,0.97986,0.98115,0.9824,0.9836,0.98476,0.98588,0.98696,0.988,0.98899,0.98995,0.99086,0.99172,0.99255,0.99333,0.99407,0.99476,0.99542,0.99603,0.99659,0.99711,0.99759,0.99803,0.99842,0.99877,0.99908,0.99934,0.99956,0.99973,0.99986,0.99995,0.99999,0.99999,0.99995,0.99986,0.99973,0.99956,0.99934,0.99908,0.99877,0.99842,0.99803,0.99759,0.99711,0.99659,0.99603,0.99542,0.99476,0.99407,0.99333,0.99255,0.99172,0.99086,0.98995,0.98899,0.988,0.98696,0.98588,0.98476,0.9836,0.9824,0.98115,0.97986,0.97853,0.97716,0.97575,0.9743,0.97281,0.97127,0.9697,0.96809,0.96643,0.96474,0.96301,0.96124,0.95943,0.95758,0.95569,0.95376,0.9518,0.94979,0.94775,0.94568,0.94356,0.94141,0.93922,0.93699,0.93473,0.93243,0.9301,0.92773,0.92533,0.92289,0.92041,0.91791,0.91536,0.91279,0.91018,0.90754,0.90486,0.90215,0.89941,0.89664,0.89384,0.891,0.88814,0.88524,0.88231,0.87936,0.87637,0.87336,0.87031,0.86724,0.86414,0.86101,0.85785,0.85467,0.85146,0.84822,0.84496,0.84167,0.83835,0.83501,0.83165,0.82826,0.82484,0.82141,0.81795,0.81446,0.81096,0.80743,0.80388,0.80031,0.79672,0.79311,0.78948,0.78583,0.78215,0.77846,0.77475,0.77103,0.76728,0.76352,0.75974,0.75594,0.75213,0.7483,0.74446,0.7406,0.73673,0.73284,0.72894,0.72502,0.72109,0.71715,0.7132,0.70923,0.70525,0.70127,0.69727,0.69326,0.68924,0.68521,0.68117,0.67712,0.67307,0.669,0.66493,0.66085,0.65677,0.65268,0.64858,0.64448,0.64037,0.63625,0.63214,0.62801,0.62389,0.61976,0.61562,0.61149,0.60735,0.60321,0.59907,0.59493,0.59079,0.58664,0.5825,0.57836,0.57421,0.57007,0.56593,0.56179,0.55766,0.55352,0.54939,0.54526,0.54114,0.53702,0.5329,0.52879,0.52468,0.52058,0.51648,0.51239,0.5083,0.50422,0.50015,0.49608,0.49202,0.48797,0.48393,0.4799,0.47587,0.47185,0.46785,0.46385,0.45986,0.45588,0.45191,0.44795,0.444,0.44007,0.43614,0.43223,0.42833,0.42444,0.42056,0.4167,0.41285,0.40901,0.40518,0.40137,0.39758,0.39379,0.39002,0.38627,0.38253,0.3788,0.37509,0.3714,0.36772,0.36406,0.36041,0.35678,0.35316,0.34957,0.34598,0.34242,0.33887,0.33534,0.33183,0.32834,0.32486,0.3214,0.31796,0.31454,0.31113,0.30775,0.30438,0.30103,0.2977,0.29439,0.2911,0.28783,0.28458,0.28135,0.27814,0.27494,0.27177,0.26862,0.26548,0.26237,0.25928,0.25621,0.25316,0.25012,0.24712,0.24413,0.24116,0.23821,0.23528,0.23238,0.22949,0.22663,0.22379,0.22097,0.21817,0.21539,0.21263,0.2099,0.20718,0.20449,0.20182,0.19917,0.19654,0.19393,0.19135,0.18878,0.18624,0.18372,0.18122,0.17874,0.17629,0.17385,0.17144,0.16905,0.16668,0.16433,0.162,0.1597,0.15742,0.15515,0.15291,0.15069,0.14849,0.14632,0.14416,0.14203,0.13991,0.13782,0.13575,0.1337,0.13167,0.12966,0.12767,0.12571,0.12376,0.12183,0.11993,0.11804,0.11618,0.11434,0.11251,0.11071,0.10892,0.10716,0.10542,0.1037,0.10199,0.10031,0.098643,0.096998,0.095373,0.093766,0.092179,0.090611,0.089063,0.087532,0.086021,0.084529,0.083055,0.081599,0.080162,0.078743,0.077343,0.07596,0.074595,0.073248,0.071919,0.070607,0.069313,0.068036,0.066777,0.065534,0.064308,0.0631,0.061908,0.060732,0.059573,0.058431,0.057304,0.056194,0.0551,0.054021,0.052959,0.051911,0.05088,0.049863,0.048862,0.047876,0.046905,0.045948,0.045006,0.044079,0.043166,0.042268,0.041383,0.040513,0.039656,0.038813,0.037984,0.037168,0.036365,0.035576,0.034799,0.034036,0.033285,0.032547,0.031822,0.031108,0.030407,0.029719,0.029042,0.028377,0.027723,0.027081,0.026451,0.025832,0.025224,0.024627,0.024041,0.023466,0.022901,0.022347,0.021803,0.02127,0.020746,0.020233,0.019729,0.019235,0.018751,0.018276,0.017811,0.017354,0.016907,0.016469,0.016039,0.015619,0.015207,0.014803,0.014408,0.014021,0.013642,0.013271,0.012908,0.012552,0.012205,0.011864,0.011532,0.011206,0.010888,0.010576,0.010272,0.0099743,0.0096835,0.0093993,0.0091216,0.0088503,0.0085852,0.0083264,0.0080736,0.0078268,0.0075859,0.0073507,0.0071212,0.0068973,0.0066788,0.0064657,0.0062578,0.0060552,0.0058576,0.005665,0.0054773,0.0052943,0.0051161,0.0049425,0.0047734,0.0046088,0.0044485,0.0042925,0.0041407,0.0039929,0.0038492,0.0037094,0.0035735,0.0034413,0.0033128,0.003188,0.0030666,0.0029488,0.0028343,0.0027232,0.0026153,0.0025106,0.002409,0.0023104,0.0022148,0.0021221,0.0020323,0.0019452,0.0018608,0.0017791,0.0017,0.0016234,0.0015493,0.0014777,0.0014083,0.0013413,0.0012766,0.001214,0.0011536,0.0010954,0.0010391,0.00098489,0.00093263,0.00088228,0.0008338,0.00078715,0.00074228,0.00069917,0.00065776,0.00061802,0.00057991,0.0005434,0.00050844,0.00047502,0.00044309,0.00041263,0.0003836,0.00035598,0.00032973,0.00030484,0.00028127,0.00025901,0.00023803,0.0002183,0.00019981,0.00018254,0.00016647,0.00015158,0.00013785,0.00012528,0.00011385,0.00010354,9.4351e-05,8.6264e-05,7.9273e-05,7.3371e-05,6.855e-05,6.4806e-05,6.2135e-05,6.0534e-05,6e-05]</value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>device_index</key>
+      <value>-1</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(512, 348)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>uhd_rfnoc_streamer_window_0</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>block_index</key>
+      <value>-1</value>
+    </param>
+  </block>
+  <block>
+    <key>uhd_rfnoc_streamer_window</key>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>coeffs</key>
+      <value>[1.0, 2.0, 3.0, 4.0]</value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>device_index</key>
+      <value>-1</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(520, 404)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>uhd_rfnoc_streamer_window_0_0</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>block_index</key>
+      <value>-1</value>
     </param>
   </block>
   <block>
@@ -2279,7 +1901,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(960, 363)</value>
+      <value>(1128, 380)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -2306,7 +1928,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(72, 491)</value>
+      <value>(32, 572)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -2322,8 +1944,20 @@
     </param>
   </block>
   <connection>
-    <source_block_id>blocks_complex_to_mag_squared_0</source_block_id>
-    <sink_block_id>virtual_sink_0</sink_block_id>
+    <source_block_id>blocks_complex_to_mag_0</source_block_id>
+    <sink_block_id>blocks_float_to_char_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>blocks_complex_to_mag_0</source_block_id>
+    <sink_block_id>msod_sensor_bin_statistics_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>blocks_float_to_char_0</source_block_id>
+    <sink_block_id>msod_sensor_jsonfile_sink_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
@@ -2334,44 +1968,74 @@
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>blocks_nlog10_ff_0</source_block_id>
+    <source_block_id>msod_sensor_bin_statistics_0</source_block_id>
     <sink_block_id>blocks_float_to_char_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>blocks_stream_to_vector_0</source_block_id>
-    <sink_block_id>fft_vxx_0</sink_block_id>
+    <source_block_id>uhd_rfnoc_streamer_bin_aggr_0</source_block_id>
+    <sink_block_id>uhd_rfnoc_streamer_logpwr_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>fft_vxx_0</source_block_id>
-    <sink_block_id>blocks_complex_to_mag_squared_0</sink_block_id>
+    <source_block_id>uhd_rfnoc_streamer_fft_0</source_block_id>
+    <sink_block_id>uhd_rfnoc_streamer_vector_iir_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>msod_sensor_bin_aggregator_0</source_block_id>
-    <sink_block_id>msod_sensor_bin_statistics_0</sink_block_id>
+    <source_block_id>uhd_rfnoc_streamer_fifo_0</source_block_id>
+    <sink_block_id>uhd_rfnoc_streamer_fft_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>msod_sensor_bin_statistics_0</source_block_id>
-    <sink_block_id>blocks_nlog10_ff_0</sink_block_id>
+    <source_block_id>uhd_rfnoc_streamer_fifo_0</source_block_id>
+    <sink_block_id>uhd_rfnoc_streamer_window_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>uhd_usrp_source_0</source_block_id>
-    <sink_block_id>blocks_stream_to_vector_0</sink_block_id>
+    <source_block_id>uhd_rfnoc_streamer_fifo_0</source_block_id>
+    <sink_block_id>uhd_rfnoc_streamer_window_0_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>uhd_rfnoc_streamer_logpwr_0</source_block_id>
+    <sink_block_id>blocks_complex_to_mag_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>uhd_rfnoc_streamer_radio_0</source_block_id>
+    <sink_block_id>uhd_rfnoc_streamer_fifo_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>uhd_rfnoc_streamer_vector_iir_0</source_block_id>
+    <sink_block_id>virtual_sink_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>uhd_rfnoc_streamer_window_0</source_block_id>
+    <sink_block_id>uhd_rfnoc_streamer_fft_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>uhd_rfnoc_streamer_window_0_0</source_block_id>
+    <sink_block_id>uhd_rfnoc_streamer_fft_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
     <source_block_id>virtual_source_0</source_block_id>
-    <sink_block_id>msod_sensor_bin_aggregator_0</sink_block_id>
+    <sink_block_id>uhd_rfnoc_streamer_bin_aggr_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
