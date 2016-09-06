@@ -26,7 +26,7 @@
 #include "bin_statistics_impl.h"
 
 namespace gr {
-  namespace msod_sensor {
+  namespace spectrum_latency {
 
     bin_statistics::sptr
     bin_statistics::make(unsigned int vlen, unsigned int meas_interval)
@@ -76,6 +76,6 @@ namespace gr {
         return noutput_items;
     }
 
-  } /* namespace msod_sensor */
+  } /* namespace spectrum_latency */
 } /* namespace gr */
 
