@@ -22,12 +22,13 @@ from gnuradio import blocks
 from gnuradio import filter
 from gnuradio import fft
 from gnuradio import uhd
+from gnuradio import gr
 from gnuradio.eng_option import eng_option
 from optparse import OptionParser
 import sys
 import math
 import threading
-import myblocks
+#import myblocks
 import array
 import time
 import json
