@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<?grc format='1' created='3.7.9'?>
+<?grc format='1' created='3.7.11'?>
 <flow_graph>
   <timestamp>Tue Sep  1 14:27:23 2015</timestamp>
   <block>
@@ -39,6 +39,10 @@
     <param>
       <key>generate_options</key>
       <value>qt_gui</value>
+    </param>
+    <param>
+      <key>hier_block_src_path</key>
+      <value>.:</value>
     </param>
     <param>
       <key>id</key>
@@ -962,7 +966,7 @@
     </param>
     <param>
       <key>dev_args</key>
-      <value>"addr=usrp0"</value>
+      <value>"addr=usrp01"</value>
     </param>
     <param>
       <key>_enabled</key>
@@ -970,7 +974,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(40, 246)</value>
+      <value>(16, 268)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1028,7 +1032,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(160, 620)</value>
+      <value>(392, 620)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1048,7 +1052,7 @@
     </param>
     <param>
       <key>vlen</key>
-      <value>fft_size</value>
+      <value>num_ch</value>
     </param>
   </block>
   <block>
@@ -1071,7 +1075,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(888, 605)</value>
+      <value>(904, 612)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1118,7 +1122,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(712, 662)</value>
+      <value>(736, 524)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1147,69 +1151,6 @@
     <param>
       <key>n</key>
       <value>10</value>
-    </param>
-  </block>
-  <block>
-    <key>fft_vxx</key>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>fft_size</key>
-      <value>fft_size</value>
-    </param>
-    <param>
-      <key>forward</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(552, 496)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>fft_vxx_0</value>
-    </param>
-    <param>
-      <key>type</key>
-      <value>complex</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>nthreads</key>
-      <value>1</value>
-    </param>
-    <param>
-      <key>shift</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>window</key>
-      <value>mywindow</value>
     </param>
   </block>
   <block>
@@ -1244,82 +1185,7 @@
     </param>
   </block>
   <block>
-    <key>msod_sensor_bin_aggregator</key>
-    <param>
-      <key>avoid_LO</key>
-      <value>False</value>
-    </param>
-    <param>
-      <key>bandwidth</key>
-      <value>9e6</value>
-    </param>
-    <param>
-      <key>alias</key>
-      <value></value>
-    </param>
-    <param>
-      <key>center_freq</key>
-      <value>center_freq</value>
-    </param>
-    <param>
-      <key>channel_bw</key>
-      <value>channel_bw</value>
-    </param>
-    <param>
-      <key>comment</key>
-      <value></value>
-    </param>
-    <param>
-      <key>affinity</key>
-      <value></value>
-    </param>
-    <param>
-      <key>_enabled</key>
-      <value>True</value>
-    </param>
-    <param>
-      <key>fft_size</key>
-      <value>fft_size</value>
-    </param>
-    <param>
-      <key>_coordinate</key>
-      <value>(336, 564)</value>
-    </param>
-    <param>
-      <key>_rotation</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>id</key>
-      <value>msod_sensor_bin_aggregator_0</value>
-    </param>
-    <param>
-      <key>input_vlen</key>
-      <value>fft_size</value>
-    </param>
-    <param>
-      <key>maxoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>minoutbuf</key>
-      <value>0</value>
-    </param>
-    <param>
-      <key>output_vlen</key>
-      <value>num_ch</value>
-    </param>
-    <param>
-      <key>samp_rate</key>
-      <value>samp_rate</value>
-    </param>
-    <param>
-      <key>output_bin_index</key>
-      <value>[0] * fft_size</value>
-    </param>
-  </block>
-  <block>
-    <key>msod_sensor_bin_statistics</key>
+    <key>spectrum_latency_bin_statistics</key>
     <param>
       <key>alias</key>
       <value></value>
@@ -1338,7 +1204,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(552, 605)</value>
+      <value>(576, 612)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1346,7 +1212,7 @@
     </param>
     <param>
       <key>id</key>
-      <value>msod_sensor_bin_statistics_0</value>
+      <value>spectrum_latency_bin_statistics_0</value>
     </param>
     <param>
       <key>maxoutbuf</key>
@@ -1366,18 +1232,14 @@
     </param>
   </block>
   <block>
-    <key>msod_sensor_jsonfile_sink</key>
+    <key>spectrum_latency_jsonfile_sink</key>
     <param>
       <key>atten</key>
       <value>0</value>
     </param>
     <param>
-      <key>Avoid_LO</key>
-      <value>False</value>
-    </param>
-    <param>
       <key>bandwidth</key>
-      <value>9e6</value>
+      <value>bandwidth</value>
     </param>
     <param>
       <key>alias</key>
@@ -1401,11 +1263,11 @@
     </param>
     <param>
       <key>filename</key>
-      <value>"/users/nae/capture/capture_X310/myFile_001.dat"</value>
+      <value>"/home/nae/SpectrumMonitorSensors/X310/09-26-2016_001"</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1056, 535)</value>
+      <value>(1096, 548)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1413,19 +1275,15 @@
     </param>
     <param>
       <key>id</key>
-      <value>msod_sensor_jsonfile_sink_0</value>
+      <value>spectrum_latency_jsonfile_sink_0</value>
     </param>
     <param>
       <key>meas_duration</key>
-      <value>meas_interval</value>
+      <value>meas_period</value>
     </param>
     <param>
       <key>num_ch</key>
       <value>num_ch</value>
-    </param>
-    <param>
-      <key>samp_rate</key>
-      <value>samp_rate</value>
     </param>
     <param>
       <key>sensor_id</key>
@@ -1433,15 +1291,98 @@
     </param>
     <param>
       <key>sensor_key</key>
-      <value>"NaN"</value>
+      <value>"12345"</value>
     </param>
     <param>
       <key>sensorLoc</key>
-      <value>"/raid/nae/pybombs/src/gr-msod_latency/examples/sensor_X310.loc"</value>
+      <value>"/raid/nae/gnuradio_RFNOC/src/gr-spectrum_latency/examples/utils/sensor_X310.loc"</value>
     </param>
     <param>
       <key>sensorSys</key>
-      <value>"/raid/nae/pybombs/src/gr-msod_latency/examples/sensor_X310.sys"</value>
+      <value>"/raid/nae/gnuradio_RFNOC/src/gr-spectrum_latency/examples/utils/sensor_X310.sys"</value>
+    </param>
+  </block>
+  <block>
+    <key>spectrum_sensor_binAggr</key>
+    <param>
+      <key>block_index</key>
+      <value>-1</value>
+    </param>
+    <param>
+      <key>bandwidth</key>
+      <value>int(bandwidth)</value>
+    </param>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>center_freq</key>
+      <value>int(center_freq)</value>
+    </param>
+    <param>
+      <key>channel_bw</key>
+      <value>180000</value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>otw</key>
+      <value>sc16</value>
+    </param>
+    <param>
+      <key>device_index</key>
+      <value>-1</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>fft_size</key>
+      <value>1024</value>
+    </param>
+    <param>
+      <key>fpga_module_name</key>
+      <value>noc_block_binAggr</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(168, 572)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>type</key>
+      <value>fc32</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>spectrum_sensor_binAggr_0</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>nbr_bins</key>
+      <value>num_ch</value>
+    </param>
+    <param>
+      <key>samp_rate</key>
+      <value>int(samp_rate)</value>
     </param>
   </block>
   <block>
@@ -1480,7 +1421,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(736, 373)</value>
+      <value>(736, 404)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1535,7 +1476,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(272, 373)</value>
+      <value>(272, 404)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1582,7 +1523,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(960, 280)</value>
+      <value>(976, 296)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1607,6 +1548,10 @@
     <param>
       <key>n</key>
       <value>100</value>
+    </param>
+    <param>
+      <key>vlen</key>
+      <value>256</value>
     </param>
   </block>
   <block>
@@ -1653,7 +1598,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(40, 324)</value>
+      <value>(16, 348)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1682,6 +1627,10 @@
     <param>
       <key>direction</key>
       <value>rx</value>
+    </param>
+    <param>
+      <key>num_channels</key>
+      <value>1</value>
     </param>
     <param>
       <key>radio_index</key>
@@ -1724,11 +1673,11 @@
     </param>
     <param>
       <key>_enabled</key>
-      <value>True</value>
+      <value>0</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(928, 366)</value>
+      <value>(968, 388)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1783,7 +1732,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(512, 332)</value>
+      <value>(512, 364)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1834,7 +1783,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(528, 428)</value>
+      <value>(528, 460)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1869,7 +1818,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(1168, 324)</value>
+      <value>(1168, 412)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1913,13 +1862,13 @@
   </block>
   <connection>
     <source_block_id>blocks_complex_to_real_0</source_block_id>
-    <sink_block_id>msod_sensor_bin_aggregator_0</sink_block_id>
+    <sink_block_id>spectrum_latency_bin_statistics_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
     <source_block_id>blocks_float_to_char_0</source_block_id>
-    <sink_block_id>msod_sensor_jsonfile_sink_0</sink_block_id>
+    <sink_block_id>spectrum_latency_jsonfile_sink_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
@@ -1930,26 +1879,32 @@
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>msod_sensor_bin_aggregator_0</source_block_id>
-    <sink_block_id>msod_sensor_bin_statistics_0</sink_block_id>
-    <source_key>0</source_key>
-    <sink_key>0</sink_key>
-  </connection>
-  <connection>
-    <source_block_id>msod_sensor_bin_statistics_0</source_block_id>
+    <source_block_id>spectrum_latency_bin_statistics_0</source_block_id>
     <sink_block_id>blocks_float_to_char_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>msod_sensor_bin_statistics_0</source_block_id>
+    <source_block_id>spectrum_latency_bin_statistics_0</source_block_id>
     <sink_block_id>blocks_nlog10_ff_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>spectrum_sensor_binAggr_0</source_block_id>
+    <sink_block_id>blocks_complex_to_real_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
   <connection>
     <source_block_id>uhd_rfnoc_streamer_fft_0</source_block_id>
     <sink_block_id>uhd_rfnoc_streamer_vector_iir_0</sink_block_id>
+    <source_key>0</source_key>
+    <sink_key>0</sink_key>
+  </connection>
+  <connection>
+    <source_block_id>uhd_rfnoc_streamer_fft_0</source_block_id>
+    <sink_block_id>virtual_sink_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
@@ -2009,7 +1964,7 @@
   </connection>
   <connection>
     <source_block_id>virtual_source_0</source_block_id>
-    <sink_block_id>blocks_complex_to_real_0</sink_block_id>
+    <sink_block_id>spectrum_sensor_binAggr_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
   </connection>
