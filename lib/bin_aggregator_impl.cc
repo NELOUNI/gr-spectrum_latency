@@ -54,14 +54,19 @@ namespace gr {
     {
     	float d_start_freq = d_center_freq - d_bandwidth / 2.0;
     	float d_stop_freq = d_start_freq + d_bandwidth;
+	float hz_per_bin_ = d_samp_rate / d_fft_size;
+	std::cout << "hz_per_bin = " << hz_per_bin_ << std::endl;
         for (int j=0; j < int(d_fft_size); j++)
 		{
         	d_i_bin = j;
             float fj = bin_freq(d_i_bin, d_center_freq);
             if ((fj >= d_start_freq) && (fj < d_stop_freq))
 			{
+		std::cout << "f[" << j << "] = " << fj << std::endl;
                 unsigned int channel_num = (floor((fj - d_start_freq) / d_channel_bw)) + 1;
+		std::cout << "channel_num = " << channel_num << std::endl;
                 d_output_bin_index[j] = channel_num;
+		std::cout << "d_output_bin_index[" << j << "] = " << d_output_bin_index[j] << std::endl;
 				}
 		}
     }
