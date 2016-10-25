@@ -3,7 +3,7 @@
   <key>spectrum_latency_jsonfile_sink</key>
   <category>[spectrum_latency]</category>
   <import>import spectrum_latency</import>
-  <make>spectrum_latency.jsonfile_sink($num_ch, $filename, $sensorLoc, $sensorSys, $sensor_id, $sensor_key, $center_freq, $bandwidth, $meas_duration, $atten, $samp_rate, $avoid_LO)</make>
+  <make>spectrum_latency.jsonfile_sink($num_ch, $filename, $sensorLoc, $sensorSys, $sensor_id, $sensor_key, $center_freq, $bandwidth, $meas_duration, $atten)</make>
   <param>
     <name>Num_Ch</name>
     <key>num_ch</key>
@@ -54,25 +54,7 @@
     <key>atten</key>
     <type>float</type>
   </param>
-  <param>
-  	<name>Samp Rate</name>
-  	<key>samp_rate</key>
-  	<type>float</type></param>
-  <param>
-                <name>Avoid LO</name>
-                <key>avoid_LO</key>
-                <value>True</value>
-                <type>bool</type>
-                <option>
-                  <name>YES</name>
-                  <key>True</key>
-                </option>
-                <option>
-                  <name>NO</name>
-                  <key>False</key>
-                </option>
-  </param>
-    <sink>
+  <sink>
     <name>in</name>
     <type>byte</type>
     <vlen>$num_ch</vlen>

@@ -50,8 +50,12 @@ class jsonfile_sink(gr.sync_block):
 
         # Establish ssl socket connection to server
         self.num_ch = num_ch
+
+        # Open file for output stream
         self.file_name = file_name
-	self.srvr = msod_sensor.file_descriptor_sink(self.num_ch * gr.sizeof_char, 0)
+    	self.f = open(self.file_name, 'wb')
+	self.srvr = blocks.file_descriptor_sink(self.num_ch * gr.sizeof_char, self.f.fileno())
+
         self.sensorLoc = sensorLoc
         self.sensorSys = sensorSys
         self.sensor_id = sensor_id
@@ -63,9 +67,6 @@ class jsonfile_sink(gr.sync_block):
         self.samp_rate = samp_rate
         self.avoid = avoid_LO
 
-        # Open file for output stream
-    	f = open(self.file_name, 'wb')
-    	self.srvr.set_fd(f.fileno())
     	
         print ("Sensor ID: ", self.sensor_id)
         # Send location and system info to server
@@ -77,8 +78,8 @@ class jsonfile_sink(gr.sync_block):
         loc_msg['SensorID'] = self.sensor_id
         sys_msg['t'] = ts
         sys_msg['SensorID'] = self.sensor_id
-        self.post_msg(loc_msg, f)
-        self.post_msg(sys_msg, f)
+        self.post_msg(loc_msg)
+        self.post_msg(sys_msg)
 
         # Form data header
         ts = long(round(getLocalUtcTimeStamp()))
@@ -92,30 +93,31 @@ class jsonfile_sink(gr.sync_block):
             print "Avoiding LO, frequencies are shifted to: [",f_start/1e6, "MHz-",f_stop/1e6,"MHz ]"
         mpar = Struct(fStart=f_start, fStop=f_stop, n=self.num_ch, td=-1, tm=self.meas_duration, Det='Average', Atten=self.atten)
         # Need to add a field for overflow indicator
-        data = Struct(Ver='1.0.12', Type='Data', SensorID=self.sensor_id, SensorKey=self.sensor_key, t=ts, Sys2Detect='LTE', Sensitivity='Low', mType='FFT-Power', t1=ts, a=1, nM=-1, Ta=-1, OL='NaN', wnI=-77.0, Comment='Using hard-coded (not detected) system noise power for wnI', Processed='False', DataType = 'Binary - int8', ByteOrder='N/A', Compression='None', mPar=mpar)
+        data_hdr = Struct(Ver='1.0.12', Type='Data', SensorID=self.sensor_id, SensorKey=self.sensor_key, t=ts, Sys2Detect='LTE', Sensitivity='Low', mType='FFT-Power', t1=ts, a=1, nM=-1, Ta=-1, OL='NaN', wnI=-77.0, Comment='Using hard-coded (not detected) system noise power for wnI', Processed='False', DataType = 'Binary - int8', ByteOrder='N/A', Compression='None', mPar=mpar)
 
-	self.post_msg(data_hdr, f)
-    	f.flush()
+	self.post_msg(data_hdr)
+    	self.f.flush()
         date_str = formatTimeStampLong(ts, loc_msg['TimeZone'])
     	print date_str, "fc =", self.center_freq/1e6, "MHz. Writing data to file", self.file_name
 
     def send(self, bytes):
         self.sock.send(bytes)
 
-    def post_msg(self, obj, f):
+    def post_msg(self, obj):
         msg = json.dumps(obj)
 	ascii_hdr = "%d\r" % len(msg)
-	f.write(ascii_hdr + msg)
+	self.f.write(ascii_hdr + msg)
 
     def read_json_from_file(self, fname):
-        f = open(fname,'r')
-        obj = json.load(f)
-        f.close()
+        g = open(fname,'r')
+        obj = json.load(g)
+        g.close()
         return obj
 
     def work(self, input_items, output_items):
         in0 = input_items[0]
         num_input_items = len(in0)
 	for i in range(num_input_items):
-            self.file_name.write(in0[i])
+            #self.file_name.write(in0[i])
+            self.f.write(in0[i])
         return num_input_items

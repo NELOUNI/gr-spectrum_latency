@@ -3,7 +3,7 @@
 ##################################################
 # GNU Radio Python Flow Graph
 # Title: Msod Sslsensor N210
-# Generated: Tue Oct 25 12:09:03 2016
+# Generated: Tue Oct 25 16:52:19 2016
 ##################################################
 
 if __name__ == '__main__':
@@ -28,10 +28,10 @@ from gnuradio.fft import window
 from gnuradio.filter import firdes
 from gnuradio.qtgui import Range, RangeWidget
 from optparse import OptionParser
+import ettus
 import math
 import spectrum_latency
 import sys
-import time
 
 
 class MSOD_SSLSensor_N210(gr.top_block, Qt.QWidget):
@@ -72,6 +72,7 @@ class MSOD_SSLSensor_N210(gr.top_block, Qt.QWidget):
         self.meas_interval = meas_interval = 1e-3
         self.impedance = impedance = 50.0
         self.channel_bw = channel_bw = hz_per_bin * round(bandwidth / num_ch / hz_per_bin)
+        self.device3 = variable_uhd_device3_0 = ettus.device3(uhd.device_addr_t( ",".join(('type=x300, addr=usrp02', "")) ))
         self.rx_gain = rx_gain = 0
         self.meas_period = meas_period = max(1, int(round(meas_interval * samp_rate / fft_size)))
         self.dest_host = dest_host = "129.6.142.103"
@@ -163,18 +164,27 @@ class MSOD_SSLSensor_N210(gr.top_block, Qt.QWidget):
         self._bandwidth_combo_box.currentIndexChanged.connect(
         	lambda i: self.set_bandwidth(self._bandwidth_options[i]))
         self.top_layout.addWidget(self._bandwidth_tool_bar)
-        self.uhd_usrp_source_0 = uhd.usrp_source(
-        	",".join(('addr=usrp1', "")),
-        	uhd.stream_args(
-        		cpu_format="fc32",
-        		channels=range(1),
-        	),
+        self.uhd_rfnoc_streamer_radio_0 = ettus.rfnoc_radio(
+            self.device3,
+            uhd.stream_args( # Tx Stream Args
+                cpu_format="fc32",
+                otw_format="sc16",
+                args="", # empty
+            ),
+            uhd.stream_args( # Rx Stream Args
+                cpu_format="fc32",
+                otw_format="sc16",
+        	args='',
+            ),
+            1, -1
         )
-        self.uhd_usrp_source_0.set_samp_rate(samp_rate)
-        self.uhd_usrp_source_0.set_center_freq(center_freq, 0)
-        self.uhd_usrp_source_0.set_gain(rx_gain, 0)
-        self.uhd_usrp_source_0.set_antenna('TX/RX', 0)
-        self.spectrum_latency_jsonfile_sink_0 = spectrum_latency.jsonfile_sink(num_ch, "/home/nae/SpectrumMonitorSensors/N210", "/raid/nae/pybombs/src/gr-msod_latency/examples/sensor.loc", "/raid/nae/pybombs/src/gr-msod_latency/examples/sensor.sys", "F37258", "12345", center_freq, bandwidth, meas_interval, 0)
+        self.uhd_rfnoc_streamer_radio_0.set_rate(samp_rate)
+        for i in xrange(1):
+            self.uhd_rfnoc_streamer_radio_0.set_rx_freq(center_freq, i)
+            self.uhd_rfnoc_streamer_radio_0.set_rx_gain(rx_gain, i)
+            self.uhd_rfnoc_streamer_radio_0.set_rx_antenna("RX2", i)
+            self.uhd_rfnoc_streamer_radio_0.set_rx_dc_offset(True, i)
+        self.spectrum_latency_jsonfile_sink_0 = spectrum_latency.jsonfile_sink(num_ch, "/home/nae/Spectrum-Sensors/N210/Capture.N210/10-25-2016", "/raid/nae/gnuradio/src/gr-spectrum_latency/examples/utils/sensor.loc", "/raid/nae/gnuradio/src/gr-spectrum_latency/examples/utils/sensor.sys", "F37258", "12345", center_freq, bandwidth, meas_interval, 0, samp_rate, False)
         self.spectrum_latency_bin_statistics_0 = spectrum_latency.bin_statistics(num_ch, meas_period)
         self.spectrum_latency_bin_aggregator_0 = spectrum_latency.bin_aggregator(fft_size, num_ch, samp_rate, fft_size, center_freq, ActualBW, channel_bw, [0] * fft_size)
         self.fft_vxx_0 = fft.fft_vcc(fft_size, True, (mywindow), True, 1)
@@ -205,7 +215,7 @@ class MSOD_SSLSensor_N210(gr.top_block, Qt.QWidget):
         self.connect((self.fft_vxx_0, 0), (self.blocks_complex_to_mag_squared_0, 0))    
         self.connect((self.spectrum_latency_bin_aggregator_0, 0), (self.spectrum_latency_bin_statistics_0, 0))    
         self.connect((self.spectrum_latency_bin_statistics_0, 0), (self.blocks_nlog10_ff_0, 0))    
-        self.connect((self.uhd_usrp_source_0, 0), (self.blocks_stream_to_vector_0, 0))    
+        self.connect((self.uhd_rfnoc_streamer_radio_0, 0), (self.blocks_stream_to_vector_0, 0))    
 
     def closeEvent(self, event):
         self.settings = Qt.QSettings("GNU Radio", "MSOD_SSLSensor_N210")
@@ -219,7 +229,7 @@ class MSOD_SSLSensor_N210(gr.top_block, Qt.QWidget):
         self.samp_rate = samp_rate
         self._samp_rate_callback(self.samp_rate)
         self.set_meas_period(max(1, int(round(self.meas_interval * self.samp_rate / self.fft_size))))
-        self.uhd_usrp_source_0.set_samp_rate(self.samp_rate)
+        self.uhd_rfnoc_streamer_radio_0.set_rate(self.samp_rate)
         self.set_hz_per_bin(self.samp_rate / self.fft_size)
 
     def get_fft_size(self):
@@ -292,13 +302,19 @@ class MSOD_SSLSensor_N210(gr.top_block, Qt.QWidget):
         self.channel_bw = channel_bw
         self.set_ActualBW(self.channel_bw * self.num_ch)
 
+    def get_variable_uhd_device3_0(self):
+        return self.variable_uhd_device3_0
+
+    def set_variable_uhd_device3_0(self, variable_uhd_device3_0):
+        self.variable_uhd_device3_0 = variable_uhd_device3_0
+
     def get_rx_gain(self):
         return self.rx_gain
 
     def set_rx_gain(self, rx_gain):
         self.rx_gain = rx_gain
-        self.uhd_usrp_source_0.set_gain(self.rx_gain, 0)
-        	
+        for i in xrange(1):
+            self.uhd_rfnoc_streamer_radio_0.set_rx_gain(self.rx_gain)
 
     def get_meas_period(self):
         return self.meas_period
@@ -319,7 +335,8 @@ class MSOD_SSLSensor_N210(gr.top_block, Qt.QWidget):
     def set_center_freq(self, center_freq):
         self.center_freq = center_freq
         self._center_freq_callback(self.center_freq)
-        self.uhd_usrp_source_0.set_center_freq(self.center_freq, 0)
+        for i in xrange(1):
+            self.uhd_rfnoc_streamer_radio_0.set_rx_freq(self.center_freq, i)
 
     def get_Vsq2W_dB(self):
         return self.Vsq2W_dB

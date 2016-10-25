@@ -120,7 +120,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(280, 259)</value>
+      <value>(328, 260)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -597,7 +597,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(176, 259)</value>
+      <value>(224, 260)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -678,7 +678,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(512, 261)</value>
+      <value>(560, 260)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -955,6 +955,37 @@
     </param>
   </block>
   <block>
+    <key>variable_uhd_device3</key>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>dev_addr</key>
+      <value>type=x300, addr=usrp02</value>
+    </param>
+    <param>
+      <key>dev_args</key>
+      <value>""</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(760, 268)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>variable_uhd_device3_0</value>
+    </param>
+  </block>
+  <block>
     <key>variable</key>
     <param>
       <key>comment</key>
@@ -966,7 +997,7 @@
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(392, 259)</value>
+      <value>(440, 260)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -1392,6 +1423,10 @@
       <value>0</value>
     </param>
     <param>
+      <key>avoid_LO</key>
+      <value>False</value>
+    </param>
+    <param>
       <key>bandwidth</key>
       <value>bandwidth</value>
     </param>
@@ -1417,7 +1452,7 @@
     </param>
     <param>
       <key>filename</key>
-      <value>"/home/nae/SpectrumMonitorSensors/N210"</value>
+      <value>"/home/nae/Spectrum-Sensors/N210/Capture.N210/10-25-2016"</value>
     </param>
     <param>
       <key>_coordinate</key>
@@ -1440,6 +1475,10 @@
       <value>num_ch</value>
     </param>
     <param>
+      <key>samp_rate</key>
+      <value>samp_rate</value>
+    </param>
+    <param>
       <key>sensor_id</key>
       <value>"F37258"</value>
     </param>
@@ -1449,11 +1488,11 @@
     </param>
     <param>
       <key>sensorLoc</key>
-      <value>"/raid/nae/pybombs/src/gr-msod_latency/examples/sensor.loc"</value>
+      <value>"/raid/nae/gnuradio/src/gr-spectrum_latency/examples/utils/sensor.loc"</value>
     </param>
     <param>
       <key>sensorSys</key>
-      <value>"/raid/nae/pybombs/src/gr-msod_latency/examples/sensor.sys"</value>
+      <value>"/raid/nae/gnuradio/src/gr-spectrum_latency/examples/utils/sensor.sys"</value>
     </param>
   </block>
   <block>
@@ -1525,6 +1564,97 @@
     <param>
       <key>sensorSys</key>
       <value>"/raid/nae/pybombs/src/gr-spectrum_latency/examples/sensor.sys"</value>
+    </param>
+  </block>
+  <block>
+    <key>uhd_rfnoc_streamer_radio</key>
+    <param>
+      <key>ant</key>
+      <value>"RX2"</value>
+    </param>
+    <param>
+      <key>alias</key>
+      <value></value>
+    </param>
+    <param>
+      <key>freq</key>
+      <value>center_freq</value>
+    </param>
+    <param>
+      <key>comment</key>
+      <value></value>
+    </param>
+    <param>
+      <key>affinity</key>
+      <value></value>
+    </param>
+    <param>
+      <key>dcenable</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>otw_format</key>
+      <value>sc16</value>
+    </param>
+    <param>
+      <key>device_index</key>
+      <value>-1</value>
+    </param>
+    <param>
+      <key>_enabled</key>
+      <value>True</value>
+    </param>
+    <param>
+      <key>grvlen</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>_coordinate</key>
+      <value>(8, 308)</value>
+    </param>
+    <param>
+      <key>_rotation</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>gain</key>
+      <value>rx_gain</value>
+    </param>
+    <param>
+      <key>cpu_format</key>
+      <value>fc32</value>
+    </param>
+    <param>
+      <key>id</key>
+      <value>uhd_rfnoc_streamer_radio_0</value>
+    </param>
+    <param>
+      <key>maxoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>minoutbuf</key>
+      <value>0</value>
+    </param>
+    <param>
+      <key>direction</key>
+      <value>rx</value>
+    </param>
+    <param>
+      <key>num_channels</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>radio_index</key>
+      <value>1</value>
+    </param>
+    <param>
+      <key>rate</key>
+      <value>samp_rate</value>
+    </param>
+    <param>
+      <key>stream_args</key>
+      <value></value>
     </param>
   </block>
   <block>
@@ -2707,11 +2837,11 @@
     </param>
     <param>
       <key>_enabled</key>
-      <value>1</value>
+      <value>0</value>
     </param>
     <param>
       <key>_coordinate</key>
-      <value>(32, 336)</value>
+      <value>(8, 252)</value>
     </param>
     <param>
       <key>_rotation</key>
@@ -2969,7 +3099,7 @@
     <sink_key>0</sink_key>
   </connection>
   <connection>
-    <source_block_id>uhd_usrp_source_0</source_block_id>
+    <source_block_id>uhd_rfnoc_streamer_radio_0</source_block_id>
     <sink_block_id>blocks_stream_to_vector_0</sink_block_id>
     <source_key>0</source_key>
     <sink_key>0</sink_key>
