@@ -32,7 +32,7 @@ GR_PYTHON_INSTALL(
     FILES
     __init__.py
     sslsocket_sink.py
-    jsonfile_sink_py.py DESTINATION ${GR_PYTHON_DIR}/spectrum_latency
+    jsonfile_sink.py DESTINATION ${GR_PYTHON_DIR}/spectrum_latency
 )
 
 ########################################################################
@@ -43,4 +43,4 @@ include(GrTest)
 set(GR_TEST_TARGET_DEPS gnuradio-spectrum_latency)
 set(GR_TEST_PYTHON_DIRS ${CMAKE_BINARY_DIR}/swig)
 GR_ADD_TEST(qa_sslsocket_sink ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_sslsocket_sink.py)
-GR_ADD_TEST(qa_jsonfile_sink_py ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_jsonfile_sink_py.py)
+GR_ADD_TEST(qa_jsonfile_sink ${PYTHON_EXECUTABLE} ${CMAKE_CURRENT_SOURCE_DIR}/qa_jsonfile_sink.py)

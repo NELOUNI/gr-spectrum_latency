@@ -33,5 +33,5 @@ except ImportError:
 # import any pure python here
 
 from sslsocket_sink import sslsocket_sink
-from jsonfile_sink_py import jsonfile_sink_py
+from jsonfile_sink import jsonfile_sink
 #

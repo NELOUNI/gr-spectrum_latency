@@ -3,7 +3,7 @@
 ##################################################
 # GNU Radio Python Flow Graph
 # Title: Msod Sslsensor N210
-# Generated: Tue Aug 30 18:23:39 2016
+# Generated: Tue Oct 25 12:09:03 2016
 ##################################################
 
 if __name__ == '__main__':
@@ -83,8 +83,8 @@ class MSOD_SSLSensor_N210(gr.top_block, Qt.QWidget):
         # Blocks
         ##################################################
         self._samp_rate_options = (12.5e6, 15.36e6, 7.68e6, 3.84e6, 1.92e6, )
-        self._samp_rate_labels = ("12.5e6", "15.36e6", "7.68e6", "3.84e6", "1.92e6", )
-        self._samp_rate_group_box = Qt.QGroupBox("samp_rate")
+        self._samp_rate_labels = ('12.5e6', '15.36e6', '7.68e6', '3.84e6', '1.92e6', )
+        self._samp_rate_group_box = Qt.QGroupBox('samp_rate')
         self._samp_rate_box = Qt.QVBoxLayout()
         class variable_chooser_button_group(Qt.QButtonGroup):
             def __init__(self, parent=None):
@@ -104,11 +104,11 @@ class MSOD_SSLSensor_N210(gr.top_block, Qt.QWidget):
         	lambda i: self.set_samp_rate(self._samp_rate_options[i]))
         self.top_layout.addWidget(self._samp_rate_group_box)
         self._rx_gain_range = Range(0, 31.5, 0.5, 0, 200)
-        self._rx_gain_win = RangeWidget(self._rx_gain_range, self.set_rx_gain, "rx_gain", "counter_slider", float)
+        self._rx_gain_win = RangeWidget(self._rx_gain_range, self.set_rx_gain, 'rx_gain', "counter_slider", float)
         self.top_layout.addWidget(self._rx_gain_win)
         self._num_ch_options = (56, 50, 25, 15, 8, )
-        self._num_ch_labels = ("56", "50", "25", "15", "8", )
-        self._num_ch_group_box = Qt.QGroupBox("num_ch")
+        self._num_ch_labels = ('56', '50', '25', '15', '8', )
+        self._num_ch_group_box = Qt.QGroupBox('num_ch')
         self._num_ch_box = Qt.QVBoxLayout()
         class variable_chooser_button_group(Qt.QButtonGroup):
             def __init__(self, parent=None):
@@ -128,9 +128,9 @@ class MSOD_SSLSensor_N210(gr.top_block, Qt.QWidget):
         	lambda i: self.set_num_ch(self._num_ch_options[i]))
         self.top_layout.addWidget(self._num_ch_group_box)
         self._fft_size_options = (625, 1024, 512, 256, 128, )
-        self._fft_size_labels = ("625", "1024", "512", "256", "128", )
+        self._fft_size_labels = ('625', '1024', '512', '256', '128', )
         self._fft_size_tool_bar = Qt.QToolBar(self)
-        self._fft_size_tool_bar.addWidget(Qt.QLabel("fft_size"+": "))
+        self._fft_size_tool_bar.addWidget(Qt.QLabel('fft_size'+": "))
         self._fft_size_combo_box = Qt.QComboBox()
         self._fft_size_tool_bar.addWidget(self._fft_size_combo_box)
         for label in self._fft_size_labels: self._fft_size_combo_box.addItem(label)
@@ -139,8 +139,47 @@ class MSOD_SSLSensor_N210(gr.top_block, Qt.QWidget):
         self._fft_size_combo_box.currentIndexChanged.connect(
         	lambda i: self.set_fft_size(self._fft_size_options[i]))
         self.top_layout.addWidget(self._fft_size_tool_bar)
+        self._center_freq_options = (709.01e6, 782e6, 724e6, )
+        self._center_freq_labels = ('AT&T', 'Verizon', 'ChannelEmulator', )
+        self._center_freq_tool_bar = Qt.QToolBar(self)
+        self._center_freq_tool_bar.addWidget(Qt.QLabel('center_freq'+": "))
+        self._center_freq_combo_box = Qt.QComboBox()
+        self._center_freq_tool_bar.addWidget(self._center_freq_combo_box)
+        for label in self._center_freq_labels: self._center_freq_combo_box.addItem(label)
+        self._center_freq_callback = lambda i: Qt.QMetaObject.invokeMethod(self._center_freq_combo_box, "setCurrentIndex", Qt.Q_ARG("int", self._center_freq_options.index(i)))
+        self._center_freq_callback(self.center_freq)
+        self._center_freq_combo_box.currentIndexChanged.connect(
+        	lambda i: self.set_center_freq(self._center_freq_options[i]))
+        self.top_layout.addWidget(self._center_freq_tool_bar)
+        self._bandwidth_options = (10.08e6, 9e6, 4.5e6, 2.7e6, 1.08e6, )
+        self._bandwidth_labels = ('10.08e6', '9e6', '4.5e6', '2.7e6', '1.08e6', )
+        self._bandwidth_tool_bar = Qt.QToolBar(self)
+        self._bandwidth_tool_bar.addWidget(Qt.QLabel('bandwidth'+": "))
+        self._bandwidth_combo_box = Qt.QComboBox()
+        self._bandwidth_tool_bar.addWidget(self._bandwidth_combo_box)
+        for label in self._bandwidth_labels: self._bandwidth_combo_box.addItem(label)
+        self._bandwidth_callback = lambda i: Qt.QMetaObject.invokeMethod(self._bandwidth_combo_box, "setCurrentIndex", Qt.Q_ARG("int", self._bandwidth_options.index(i)))
+        self._bandwidth_callback(self.bandwidth)
+        self._bandwidth_combo_box.currentIndexChanged.connect(
+        	lambda i: self.set_bandwidth(self._bandwidth_options[i]))
+        self.top_layout.addWidget(self._bandwidth_tool_bar)
+        self.uhd_usrp_source_0 = uhd.usrp_source(
+        	",".join(('addr=usrp1', "")),
+        	uhd.stream_args(
+        		cpu_format="fc32",
+        		channels=range(1),
+        	),
+        )
+        self.uhd_usrp_source_0.set_samp_rate(samp_rate)
+        self.uhd_usrp_source_0.set_center_freq(center_freq, 0)
+        self.uhd_usrp_source_0.set_gain(rx_gain, 0)
+        self.uhd_usrp_source_0.set_antenna('TX/RX', 0)
+        self.spectrum_latency_jsonfile_sink_0 = spectrum_latency.jsonfile_sink(num_ch, "/home/nae/SpectrumMonitorSensors/N210", "/raid/nae/pybombs/src/gr-msod_latency/examples/sensor.loc", "/raid/nae/pybombs/src/gr-msod_latency/examples/sensor.sys", "F37258", "12345", center_freq, bandwidth, meas_interval, 0)
+        self.spectrum_latency_bin_statistics_0 = spectrum_latency.bin_statistics(num_ch, meas_period)
+        self.spectrum_latency_bin_aggregator_0 = spectrum_latency.bin_aggregator(fft_size, num_ch, samp_rate, fft_size, center_freq, ActualBW, channel_bw, [0] * fft_size)
+        self.fft_vxx_0 = fft.fft_vcc(fft_size, True, (mywindow), True, 1)
         self._dest_host_options = ("pwct1.ctl.nist.gov", "129.6.142.103", "129.6.142.181", "pwct5.ctl.nist.gov", )
-        self._dest_host_labels = ("pwct1", "NEO_VM", "pwct5Desktop", "Pwct5", )
+        self._dest_host_labels = ('pwct1', 'NEO_VM', 'pwct5Desktop', 'Pwct5', )
         self._dest_host_tool_bar = Qt.QToolBar(self)
         self._dest_host_tool_bar.addWidget(Qt.QLabel(dest_host+": "))
         self._dest_host_combo_box = Qt.QComboBox()
@@ -151,46 +190,6 @@ class MSOD_SSLSensor_N210(gr.top_block, Qt.QWidget):
         self._dest_host_combo_box.currentIndexChanged.connect(
         	lambda i: self.set_dest_host(self._dest_host_options[i]))
         self.top_layout.addWidget(self._dest_host_tool_bar)
-        self._center_freq_options = (709.01e6, 782e6, 724e6, )
-        self._center_freq_labels = ("AT&T", "Verizon", "ChannelEmulator", )
-        self._center_freq_tool_bar = Qt.QToolBar(self)
-        self._center_freq_tool_bar.addWidget(Qt.QLabel("center_freq"+": "))
-        self._center_freq_combo_box = Qt.QComboBox()
-        self._center_freq_tool_bar.addWidget(self._center_freq_combo_box)
-        for label in self._center_freq_labels: self._center_freq_combo_box.addItem(label)
-        self._center_freq_callback = lambda i: Qt.QMetaObject.invokeMethod(self._center_freq_combo_box, "setCurrentIndex", Qt.Q_ARG("int", self._center_freq_options.index(i)))
-        self._center_freq_callback(self.center_freq)
-        self._center_freq_combo_box.currentIndexChanged.connect(
-        	lambda i: self.set_center_freq(self._center_freq_options[i]))
-        self.top_layout.addWidget(self._center_freq_tool_bar)
-        self._bandwidth_options = (10.08e6, 9e6, 4.5e6, 2.7e6, 1.08e6, )
-        self._bandwidth_labels = ("10.08e6", "9e6", "4.5e6", "2.7e6", "1.08e6", )
-        self._bandwidth_tool_bar = Qt.QToolBar(self)
-        self._bandwidth_tool_bar.addWidget(Qt.QLabel("bandwidth"+": "))
-        self._bandwidth_combo_box = Qt.QComboBox()
-        self._bandwidth_tool_bar.addWidget(self._bandwidth_combo_box)
-        for label in self._bandwidth_labels: self._bandwidth_combo_box.addItem(label)
-        self._bandwidth_callback = lambda i: Qt.QMetaObject.invokeMethod(self._bandwidth_combo_box, "setCurrentIndex", Qt.Q_ARG("int", self._bandwidth_options.index(i)))
-        self._bandwidth_callback(self.bandwidth)
-        self._bandwidth_combo_box.currentIndexChanged.connect(
-        	lambda i: self.set_bandwidth(self._bandwidth_options[i]))
-        self.top_layout.addWidget(self._bandwidth_tool_bar)
-        self.uhd_usrp_source_0 = uhd.usrp_source(
-        	",".join(("addr=usrp1", "")),
-        	uhd.stream_args(
-        		cpu_format="fc32",
-        		channels=range(1),
-        	),
-        )
-        self.uhd_usrp_source_0.set_samp_rate(samp_rate)
-        self.uhd_usrp_source_0.set_center_freq(center_freq, 0)
-        self.uhd_usrp_source_0.set_gain(rx_gain, 0)
-        self.uhd_usrp_source_0.set_antenna("TX/RX", 0)
-        self.spectrum_latency_sslsocket_sink_0 = spectrum_latency.sslsocket_sink(num_ch, dest_host, "/raid/nae/pybombs/src/gr-spectrum_latency/examples/sensor.loc", "/raid/nae/pybombs/src/gr-spectrum_latency/examples/sensor.sys", "F37258", "12345", center_freq, bandwidth, meas_interval, 0)
-        self.spectrum_latency_jsonfile_sink_0 = spectrum_latency.jsonfile_sink(num_ch, "/home/nae/SpectrumMonitorSensors/N210", "/raid/nae/pybombs/src/gr-msod_latency/examples/sensor.loc", "/raid/nae/pybombs/src/gr-msod_latency/examples/sensor.sys", "F37258", "12345", center_freq, bandwidth, meas_interval, 0)
-        self.spectrum_latency_bin_statistics_0 = spectrum_latency.bin_statistics(num_ch, meas_period)
-        self.spectrum_latency_bin_aggregator_0 = spectrum_latency.bin_aggregator(fft_size, num_ch, samp_rate, fft_size, center_freq, ActualBW, channel_bw, [0] * fft_size)
-        self.fft_vxx_0 = fft.fft_vcc(fft_size, True, (mywindow), True, 1)
         self.blocks_stream_to_vector_0 = blocks.stream_to_vector(gr.sizeof_gr_complex*1, fft_size)
         self.blocks_nlog10_ff_0 = blocks.nlog10_ff(10, num_ch, 30.0 + Vsq2W_dB)
         self.blocks_float_to_char_0 = blocks.float_to_char(num_ch, 1.0)
@@ -201,7 +200,6 @@ class MSOD_SSLSensor_N210(gr.top_block, Qt.QWidget):
         ##################################################
         self.connect((self.blocks_complex_to_mag_squared_0, 0), (self.spectrum_latency_bin_aggregator_0, 0))    
         self.connect((self.blocks_float_to_char_0, 0), (self.spectrum_latency_jsonfile_sink_0, 0))    
-        self.connect((self.blocks_float_to_char_0, 0), (self.spectrum_latency_sslsocket_sink_0, 0))    
         self.connect((self.blocks_nlog10_ff_0, 0), (self.blocks_float_to_char_0, 0))    
         self.connect((self.blocks_stream_to_vector_0, 0), (self.fft_vxx_0, 0))    
         self.connect((self.fft_vxx_0, 0), (self.blocks_complex_to_mag_squared_0, 0))    

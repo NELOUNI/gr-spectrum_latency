@@ -28,7 +28,6 @@ from optparse import OptionParser
 import sys
 import math
 import threading
-#import myblocks
 import array
 import time
 import json

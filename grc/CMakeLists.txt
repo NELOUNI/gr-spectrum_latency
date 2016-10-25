@@ -20,6 +20,6 @@
 install(FILES
 	spectrum_latency_bin_aggregator.xml
 	spectrum_latency_bin_statistics.xml
-	spectrum_latency_jsonfile_sink_py.xml
+	spectrum_latency_jsonfile_sink.xml
 	spectrum_latency_sslsocket_sink.xml DESTINATION share/gnuradio/grc/blocks
 )
